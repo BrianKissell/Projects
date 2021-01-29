@@ -1,0 +1,62 @@
+variable,label,value_labels,scale,subscale,keying,links
+id,ID Number,numeric,NA,NA,NA,NA
+date,Date of study,date,NA,NA,NA,NA
+time,Time of study,time,NA,NA,NA,NA
+condition,Experimental Condition,1. Control 2. Cold 3. Overvalue,NA,NA,NA,https://docs.google.com/document/d/e/2PACX-1vS26EyH5apCUwGgNtSkQmlnW_uKNdGOt7iZxowrI-mJFLqvNLChtXL9jawXse3uI7bt-3c2UtrQHLbf/pub
+npi_total,Narcissism Personality Inventory (NPI) - Total Score,numeric,NA,NA,NA,NA
+sex,Sex of participant,0. Male 1. Female,Demographics,NA,NA,NA
+age,Age of participant,numeric,Demographics,NA,NA,NA
+npi_1,NPI - Item 1,1. I have a natural talent for influencing people. 2. I am not good at influencing people.,Narcissism Personality Inventory (NPI),NA,-1,NA
+npi_2,NPI - Item 2,1. Modesty doesn't become me. 2. I am essentially a modest person.,Narcissism Personality Inventory (NPI),NA,-1,NA
+filler_1,Filler - Item 1,Filler - Item 1,NA,NA,NA,NA
+npi_3,NPI - Item 3,1. I would do almost anything on a dare. 2. I tend to be a fairly cautious person.,Narcissism Personality Inventory (NPI),NA,-1,NA
+npi_4,NPI - Item 4,1. When people compliment me I sometimes get embarrassed. 2. I know that I am good because everybody keeps telling me so.,Narcissism Personality Inventory (NPI),NA,1,NA
+npi_5,NPI - Item 5,1. The thought of ruling the world frightens the hell out of me. 2. If I ruled the world it would be a much better place.,Narcissism Personality Inventory (NPI),NA,1,NA
+filler_2,Filler - Item 2,Filler - Item 2,NA,NA,NA,NA
+npi_6,NPI - Item 6,1. I can usually talk my way out of anything. 2. I try to accept the consequences of my behavior.,Narcissism Personality Inventory (NPI),NA,-1,NA
+npi_7,NPI - Item 7,1. I prefer to blend in with the crowd. 2. I like to be the center of attention.,Narcissism Personality Inventory (NPI),NA,1,NA
+npi_8,NPI - Item 8,1. I will be a success. 2. I am not too concerned about success.,Narcissism Personality Inventory (NPI),NA,-1,NA
+filler_3,Filler - Item 3,Filler - Item 3,NA,NA,NA,NA
+npi_9,NPI - Item 9,1. I am no better or no worse than most people. 2. I think I am a special person.,Narcissism Personality Inventory (NPI),NA,1,NA
+npi_10,NPI - Item 10,1. I am not sure if I would make a good leader. 2. I see myself as a good leader.,Narcissism Personality Inventory (NPI),NA,1,NA
+npi_11,NPI - Item 11,1. I am assertive. 2. I wish I were more assertive.,Narcissism Personality Inventory (NPI),NA,-1,NA
+npi_12,NPI - Item 12,1. I like having authority over people. 2. I don't mind following orders.,Narcissism Personality Inventory (NPI),NA,-1,NA
+npi_13,NPI - Item 13,1. I find it easy to manipulate people. 2. I don't like it when I find myself manipulating people.,Narcissism Personality Inventory (NPI),NA,-1,NA
+filler_4,Filler - Item 4,Filler - Item 4,NA,NA,NA,NA
+npi_14,NPI - Item 14,1. I insist upon getting the respect that is due me. 2. I usually get the respect that I deserve.,Narcissism Personality Inventory (NPI),NA,-1,NA
+npi_15,NPI - Item 15,1. I don't particularly like to show off my body. 2. I like to display my body.,Narcissism Personality Inventory (NPI),NA,1,NA
+npi_16,NPI - Item 16,1. I can read people like a book. 2. People are sometimes hard to understand.,Narcissism Personality Inventory (NPI),NA,-1,NA
+filler_5,Filler - Item 5,Filler - Item 5,NA,NA,NA,NA
+npi_17,NPI - Item 17,1. If I feel competent I am willing to take responsibility for making decisions. 2. I like to take responsibility for making decisions.,Narcissism Personality Inventory (NPI),NA,1,NA
+npi_18,NPI - Item 18,1. I just want to be reasonably happy. 2. I want to amount to something in the eyes of the world.,Narcissism Personality Inventory (NPI),NA,1,NA
+filler_6,Filler - Item 6,Filler - Item 6,NA,NA,NA,NA
+npi_19,NPI - Item 19,1. My body is nothing special. 2. I like to look at my body.,Narcissism Personality Inventory (NPI),NA,1,NA
+npi_20,NPI - Item 20,1. I try not to be a show off. 2. I am apt to show off if I get the chance.,Narcissism Personality Inventory (NPI),NA,1,NA
+npi_21,NPI - Item 21,1. I always know what I am doing. 2. Sometimes I am not sure of what I am doing.,Narcissism Personality Inventory (NPI),NA,-1,NA
+filler_7,Filler - Item 7,Filler - Item 7,NA,NA,NA,NA
+npi_22,NPI - Item 22,1. I sometimes depend on people to get things done. 2. I rarely depend on anyone else to get things done.,Narcissism Personality Inventory (NPI),NA,1,NA
+npi_23,NPI - Item 23,1. Sometimes I tell good stories. 2. Everybody likes to hear my stories.,Narcissism Personality Inventory (NPI),NA,1,NA
+npi_24,NPI - Item 24,1. I expect a great deal from other people. 2. I like to do things for other people.,Narcissism Personality Inventory (NPI),NA,-1,NA
+filler_8,Filler - Item 8,Filler - Item 8,NA,NA,NA,NA
+npi_25,NPI - Item 25,1. I will never be satisfied until I get all that I deserve. 2. I take my satisfactions as they come.,Narcissism Personality Inventory (NPI),NA,-1,NA
+npi_26,NPI - Item 26,1. Compliments embarrass me. 2. I like to be complimented.,Narcissism Personality Inventory (NPI),NA,1,NA
+npi_27,NPI - Item 27,1. I have a strong will to power. 2. Power for its own sake doesn't interest me.,Narcissism Personality Inventory (NPI),NA,-1,NA
+filler_9,Filler - Item 9,Filler - Item 9,NA,NA,NA,NA
+npi_28,NPI - Item 28,1. I don't very much care about new fads and fashions. 2. I like to start new fads and fashions.,Narcissism Personality Inventory (NPI),NA,1,NA
+npi_29,NPI - Item 29,1. I like to look at myself in the mirror. 2. I am not particularly interested in looking at myself in the mirror.,Narcissism Personality Inventory (NPI),NA,-1,NA
+npi_30,NPI - Item 30,1. I really like to be the center of attention. 2. It makes me uncomfortable to be the center of attention.,Narcissism Personality Inventory (NPI),NA,-1,NA
+filler_10,Filler - Item 10,Filler - Item 10,NA,NA,NA,NA
+npi_31,NPI - Item 31,1. I can live my life in any way I want to. 2. People can't always live their lives in terms of what they want.,Narcissism Personality Inventory (NPI),NA,-1,NA
+npi_32,NPI - Item 32,1. Being an authority doesn't mean that much to me. 2. People always seem to recognize my authority.,Narcissism Personality Inventory (NPI),NA,1,NA
+npi_33,NPI - Item 33,1. I would prefer to be a leader. 2. It makes little difference to me whether I am a leader or not.,Narcissism Personality Inventory (NPI),NA,-1,NA
+filler_11,Filler - Item 11,Filler - Item 11,NA,NA,NA,NA
+npi_34,NPI - Item 34,1. I am going to be a great person. 2. I hope I am going to be successful.,Narcissism Personality Inventory (NPI),NA,-1,NA
+npi_35,NPI - Item 35,1. People sometimes believe what I tell them. 2. I can make anybody believe anything I want them to.,Narcissism Personality Inventory (NPI),NA,1,NA
+npi_36,NPI - Item 36,1. I am a born leader. 2. Leadership is a quality that takes a long time to develop.,Narcissism Personality Inventory (NPI),NA,-1,NA
+filler_12,Filler - Item 12,Filler - Item 12,NA,NA,NA,NA
+npi_37,NPI - Item 37,1. I wish somebody would someday write my biography. 2. I don't like people to pry into my life for any reason.,Narcissism Personality Inventory (NPI),NA,-1,NA
+npi_38,NPI - Item 38,1. I get upset when people don't notice how I look when I go out in public. 2. I don't mind blending into the crowd when I go out in public.,Narcissism Personality Inventory (NPI),NA,-1,NA
+npi_39,NPI - Item 39,1. I am more capable than other people. 2. There is a lot that I can learn from other people.,Narcissism Personality Inventory (NPI),NA,-1,NA
+filler_13,Filler - Item 13,Filler - Item 13,NA,NA,NA,NA
+npi_40,NPI - Item 40,1. I am much like everybody else. 2. I am an extraordinary person.,Narcissism Personality Inventory (NPI),NA,1,NA
+certain_of_guess,How certain are you that you know what the study was about?,numeric,NA,NA,NA,NA
