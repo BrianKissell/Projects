@@ -1,0 +1,75 @@
+variable,label,value_labels,scale,subscale,keying,links
+id,ID Number,numeric,NA,NA,NA,NA
+age,Age of participant,numeric,NA,NA,NA,NA
+sex,Sex of participant,1. Male 2. Female,NA,NA,NA,NA
+cognitive_task,IV1: Cognitive Task,1. Pray 2. Think,NA,NA,NA,NA
+physical_position,IV2: Physical Position,1. Kneeling 2. Standing,NA,NA,NA,NA
+nfc_total,Need for Cognition - Total Score,numeric,NA,NA,NA,NA
+fii_total,Faith in Intuition - Total Score,numeric,NA,NA,NA,NA
+time_on_crt,Time spent on CRT Questions,numeric,NA,NA,NA,NA
+crt_total,Number of Correct Answers on the Cognitive Reflection Test,numeric,NA,NA,NA,NA
+belief_in_god,Do you believe in God?,0. No 1. Yes,Religious Questions,NA,NA,NA
+certainty_of_belief_in_god,"In regards to your stated belief or unbelief in God, how certain are you?",1. Very Uncertain 2. Uncertain 3. Moderately Uncertain 4. Neutral 5. Moderately Certain 6. Certain 7. Very Certain,Religious Questions,NA,NA,NA
+frequency_of_prayer,How often do you usually pray?,1. Never 2. Rarely 3. Monthly 4. Weekly 5. Daily 6. Multiple Times Daily,Religious Questions,NA,NA,NA
+duration_of_prayer,What is the average time that you usually pray?,1. 1-30 Seconds 2. 31-60 Seconds 3. 1-2 Minutes 4. 2-3 Minutes 5. 3-4 Minutes 6. 4-5 Minutes 7. 5-6 Minutes 8. 7-8 Minutes 9. 8-9 Minutes,Religious Questions,NA,NA,NA
+frequency_of_religious_services,How often do you attend religious services?,1. Never 2. Very Rarely 3. Rarely 4. Occasionally 5. Very Frequently 6. Always,Religious Questions,NA,NA,NA
+religious_denomination,What is your religious denomination?,Textual response,Religious Questions,NA,NA,NA
+denomination,I coded denomination,1. Christian 2. None 3. Atheist/Agnostic 4. Other,Religious Questions,NA,NA,NA
+engagement_in_cognitive_task,What proportion of the five minute period did you engage in the task?,1. Not at all 2. Around one minute 3. Around two and a half minutes 4. Around four minutes 5. The entire 5 minutes.,NA,NA,NA,NA
+physical_position_model_legs_q1,Legs: What did you do?,1. Kneeling 2. Sitting 3. Standing 4. Legs - Other,Physical Position Model,NA,NA,NA
+physical_position_model_legs_q2,Legs: How do you usually pray?,1. Kneeling 2. Sitting 3. Standing 4. Legs - Other,Physical Position Model,NA,NA,NA
+physical_position_model_legs_q3,Legs: During meaningful prayers?,1. Kneeling 2. Sitting 3. Standing 4. Legs - Other,Physical Position Model,NA,NA,NA
+physical_position_model_hands_q1,Hands: What did you do?,1. Hands in front of body 2. Hands to the side 3. Hands behind body 4. Hands - Other,Physical Position Model,NA,NA,NA
+physical_position_model_hands_q2,Hands: How do you usually pray?,1. Hands in front of body 2. Hands to the side 3. Hands behind body 4. Hands - Other,Physical Position Model,NA,NA,NA
+physical_position_model_hands_q3,Hands:During meaningful prayers?,1. Hands in front of body 2. Hands to the side 3. Hands behind body 4. Hands - Other,Physical Position Model,NA,NA,NA
+physical_position_model_head_q1,Head: What did you do?,1. Head looking up 2. Head looking straight 3. Head looking down 4. Head - Other,Physical Position Model,NA,NA,NA
+physical_position_model_head_q2,Head: How do you usually pray?,1. Head looking up 2. Head looking straight 3. Head looking down 4. Head - Other,Physical Position Model,NA,NA,NA
+physical_position_model_head_q3,Head: During meaningful prayers?,1. Head looking up 2. Head looking straight 3. Head looking down 4. Head - Other,Physical Position Model,NA,NA,NA
+physical_position_model_body_q1,Body: What did you do?,1. Body erect 2. Body bent over 3. Body laying down 4. Body - Other,Physical Position Model,NA,NA,NA
+physical_position_model_body_q2,Body: How do you usually pray?,1. Body erect 2. Body bent over 3. Body laying down 4. Body - Other,Physical Position Model,NA,NA,NA
+physical_position_model_body_q3,Body: During meaningful prayers?,1. Body erect 2. Body bent over 3. Body laying down 4. Body - Other,Physical Position Model,NA,NA,NA
+Goal,What goal were you considering?,Textual response,NA,NA,NA,NA
+crt_1,A bat and a ball cost $1.10 in total. The bat costs a dollar more than the ball. How much does the ball cost? ,Textual response,Cognitive Reflection Test,NA,1,NA
+crt_2,"If it takes 5 machines 5 minutes to make 5 widgets, how long would it take 100 machines to make 100 widgets? ",Textual response,Cognitive Reflection Test,NA,1,NA
+crt_3,"In a lake, there is a patch of lily pads. Every day, the patch doubles in size. If it takes 48 days for the patch to cover the entire lake, how long would it take for the patch to cover half of the lake? ",Textual response,Cognitive Reflection Test,NA,1,NA
+crt_4,"If John can drink one barrel of water in 6 days, and Mary can drink one barrel of water in 12 days, how long would it take them to drink one barrel of water together? ",Textual response,Cognitive Reflection Test,NA,1,NA
+crt_5,Jerry received both the 15th highest and the 15th lowest mark in the class. How many students are in the class? ,Textual response,Cognitive Reflection Test,NA,1,NA
+crt_6,"A man buys a pig for $60, sells it for $70, buys it back for $80, and sells it finally for $90. How much has he made? ",Textual response,Cognitive Reflection Test,NA,1,NA
+crt_7,"Simon decided to invest $8,000 in the stock market one day early in 2008. Six months after he invested, on July 17, the stocks he had purchased were down 50%. Fortunately for Simon, from July 17 to October 17, the stocks he had purchased went up 75%. At this point, Simon has: a. broken even in the stock market, b. is ahead of where he began, c. has lost money ",Textual response,Cognitive Reflection Test,NA,1,NA
+nfc_1,I would prefer complex to simple problems.,1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Need for Cognition Scale,NA,1,NA
+nfc_2,I like to have the responsibility of handling a situation that requires a lot of thinking.,1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Need for Cognition Scale,NA,1,NA
+nfc_3,Thinking is not my idea of fun,1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Need for Cognition Scale,NA,-1,NA
+nfc_4,I would rather do something that requires little thought than something that is sure to challenge my thinking abilities.,1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Need for Cognition Scale,NA,-1,NA
+nfc_5,I try to anticipate and avoid situations where there is likely chance I will have to think in depth about something.,1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Need for Cognition Scale,NA,-1,NA
+nfc_6,I find satisfaction in deliberating hard and for long hours.,1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Need for Cognition Scale,NA,1,NA
+nfc_7,I only think as hard as I have to. ,1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Need for Cognition Scale,NA,-1,NA
+nfc_8,"I prefer to think about small, daily projects to long-term ones.",1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Need for Cognition Scale,NA,-1,NA
+nfc_9,I like tasks that require little thought once I've learned them.,1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Need for Cognition Scale,NA,-1,NA
+nfc_10,The idea of relying on thought to make my way to the top appeals to me.,1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Need for Cognition Scale,NA,1,NA
+nfc_11,I really enjoy a task that involves coming up with new solutions to problems.,1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Need for Cognition Scale,NA,1,NA
+nfc_12,Learning new ways to think doesn't excite me very much.,1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Need for Cognition Scale,NA,-1,NA
+nfc_13,I prefer my life to be filled with puzzles that I must solve.,1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Need for Cognition Scale,NA,1,NA
+nfc_14,The notion of thinking abstractly is appealing to me.,1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Need for Cognition Scale,NA,1,NA
+nfc_15,"I would prefer a task that is intellectual, difficult, and important to one that is somewhat important but does not require much thought.",1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Need for Cognition Scale,NA,1,NA
+nfc_16,I feel relief rather than satisfaction after completing a task that required a lot of mental effort.,1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Need for Cognition Scale,NA,-1,NA
+nfc_17,It's enough for me that something gets the job done; I don't care how or why it works.,1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Need for Cognition Scale,NA,-1,NA
+nfc_18,I usually end up deliberating about issues even when they do not affect me personally.,1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Need for Cognition Scale,NA,1,NA
+fii_1,My initial impressions of people are almost always right. ,1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Faith in Intuition Scale,NA,1,NA
+fii_2,I trust my initial feelings about people. ,1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Faith in Intuition Scale,NA,1,NA
+fii_3,"When it comes to trusting people, I can usually rely on my ""gut feelings."" ",1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Faith in Intuition Scale,NA,1,NA
+fii_4,I believe in trusting my hunches. ,1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Faith in Intuition Scale,NA,1,NA
+fii_5,I can usually feel when a person is right or wrong even if I can't explain how I know. ,1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Faith in Intuition Scale,NA,1,NA
+fii_6,I am a very intuitive person. ,1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Faith in Intuition Scale,NA,1,NA
+fii_7,I can typically sense right away when a person is lying. ,1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Faith in Intuition Scale,NA,1,NA
+fii_8,I am quick to form impressions about people. ,1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Faith in Intuition Scale,NA,1,NA
+fii_9,I believe I can judge character pretty well from a person's appearance. ,1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Faith in Intuition Scale,NA,1,NA
+fii_10,I often have clear visual images of things. ,1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Faith in Intuition Scale,NA,1,NA
+fii_11,I have a very good sense of rhythm. ,1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Faith in Intuition Scale,NA,1,NA
+fii_12,I am good at visualizing things.,1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Faith in Intuition Scale,NA,1,NA
+reaction_time_crt_1,Reaction time for CRT - Item 1,numeric,Reaction Time for CRT,NA,1,NA
+reaction_time_crt_2,Reaction time for CRT - Item 2,numeric,Reaction Time for CRT,NA,1,NA
+reaction_time_crt_3,Reaction time for CRT - Item 3,numeric,Reaction Time for CRT,NA,1,NA
+reaction_time_crt_4,Reaction time for CRT - Item 4,numeric,Reaction Time for CRT,NA,1,NA
+reaction_time_crt_5,Reaction time for CRT - Item 5,numeric,Reaction Time for CRT,NA,1,NA
+reaction_time_crt_6,Reaction time for CRT - Item 6,numeric,Reaction Time for CRT,NA,1,NA
+reaction_time_crt_7,Reaction time for CRT - Item 7,numeric,Reaction Time for CRT,NA,1,NA

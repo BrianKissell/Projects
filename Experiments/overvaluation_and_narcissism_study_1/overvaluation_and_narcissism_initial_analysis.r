@@ -10,7 +10,7 @@ library(emmeans)
 theme_set(theme_gdocs())
 
 # Import data
-df <- read_csv("C:/Users/Brian/kissell_projects/kissell_projects/Personal_Website/Projects/Experiments/overvaluation_and_narcissism/overvaluation_and_narcissism.csv")
+df <- read_csv("C:/Users/Brian/kissell_projects/kissell_projects/Personal_Website/Projects/Experiments/overvaluation_and_narcissism_study_1/overvaluation_and_narcissism.csv")
 
 # Check data frame and data types
 glimpse(df)
