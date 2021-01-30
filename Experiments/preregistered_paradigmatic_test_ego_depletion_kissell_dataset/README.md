@@ -1,0 +1,2 @@
+# Vohs, K. D., Schmeichel, B. J., Lohmann, S., Gronau, Q.… Kissell, B. L…. Wagenmakers, E.-J., & Albarracín, D. (2019). A preregistered paradigmatic test of the ego depletion effect: Kissell dataset.
+This data is not yet publically available.
