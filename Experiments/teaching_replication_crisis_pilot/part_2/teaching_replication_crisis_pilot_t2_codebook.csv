@@ -1,0 +1,56 @@
+variable,label,value_labels,scale,subscale,keying,links
+id,ID Number,numeric,NA,NA,NA,NA
+like_psychology_time_2,I like psychology.,1. strongly disagree 2. disagree 3. slightly disagree 4. neither disagree nor agree 5. slightly agree 6. agree 7. strongly agree,NA,NA,NA,NA
+like_social_psychology_time_2,I like social psychology.,1. strongly disagree 2. disagree 3. slightly disagree 4. neither disagree nor agree 5. slightly agree 6. agree 7. strongly agree,NA,NA,NA,NA
+psych_similar_to_biology_time_2,"I think psychological research is similar to research in fields like chemistry, physics, or biology.",1. strongly disagree 2. disagree 3. slightly disagree 4. neither disagree nor agree 5. slightly agree 6. agree 7. strongly agree,NA,NA,NA,NA
+social_psych_similar_to_biology_time_2,"I think social psychological research is similar to research in fields like chemistry, physics, or biology.",1. strongly disagree 2. disagree 3. slightly disagree 4. neither disagree nor agree 5. slightly agree 6. agree 7. strongly agree,NA,NA,NA,NA
+psych_similar_to_philosophy_time_2,"I think psychological research is similar to research in fields like philosophy, literature, or modern languages.",1. strongly disagree 2. disagree 3. slightly disagree 4. neither disagree nor agree 5. slightly agree 6. agree 7. strongly agree,NA,NA,NA,NA
+social_psych_similar_to_philosophy_time_2,"I think social psychological research is similar to research in fields like philosophy, literature, or modern languages.",1. strongly disagree 2. disagree 3. slightly disagree 4. neither disagree nor agree 5. slightly agree 6. agree 7. strongly agree,NA,NA,NA,NA
+psych_is_soft_science_time_2,"I think psychology is a ""soft"" science.",1. strongly disagree 2. disagree 3. slightly disagree 4. neither disagree nor agree 5. slightly agree 6. agree 7. strongly agree,NA,NA,NA,NA
+social_psych_is_soft_science_time_2,"I think social psychology is a ""soft"" science.",1. strongly disagree 2. disagree 3. slightly disagree 4. neither disagree nor agree 5. slightly agree 6. agree 7. strongly agree,NA,NA,NA,NA
+graduate_school_psych_time_2,I am interested in pursuing graduate school in psychology.,1. strongly disagree 2. disagree 3. slightly disagree 4. neither disagree nor agree 5. slightly agree 6. agree 7. strongly agree,NA,NA,NA,NA
+graduate_school_social_psych_time_2,I am interested in pursuing graduate school in social psychology.,1. strongly disagree 2. disagree 3. slightly disagree 4. neither disagree nor agree 5. slightly agree 6. agree 7. strongly agree,NA,NA,NA,NA
+trust_work_by_psychologists_time_2,I trust the results of studies done by psychologists.,1. strongly disagree 2. disagree 3. slightly disagree 4. neither disagree nor agree 5. slightly agree 6. agree 7. strongly agree,NA,NA,NA,NA
+trust_work_by_social_psychologists_time_2,I trust the results of studies done by social psychologists.,1. strongly disagree 2. disagree 3. slightly disagree 4. neither disagree nor agree 5. slightly agree 6. agree 7. strongly agree,NA,NA,NA,NA
+believable_time_2,How believable did you find the results of this study?,"1. Study Links Warm Hands, Warm Heart. 2. Study: U.S. Flag 'Primes' Voters Toward Republican Viewpoints",NA,NA,NA,NA
+replicable_time_2,"If another group of researchers were to run a study similar to the studies described on the previous page, how likely is it that this additional study would reach similar conclusions?",1. not at all believable 7. very believable,NA,NA,NA,NA
+surprising_time_2,How surprising were the results of this study?,1. not at all unlikely 7. very likely,NA,NA,NA,NA
+interested_time_2,How interested are you in reading the empirical article described in the media account?,1. not at all surprising 7. very surprising,NA,NA,NA,NA
+quality_time_2,How would you rate the quality of the research described on the previous page?,1. not at all interested 7. very interested,NA,NA,NA,NA
+attention_check_time_2,"Please choose the third option on the scale below (i.e., #3).",1. very low quality 7. very high quality,NA,NA,NA,NA
+impressions_time_2_text,What were your impressions and thoughts about this study?,1. very low quality 7. very high quality,NA,NA,NA,NA
+AttendBPL,"Were you able to attend class on Thursday (09/06/18) in which the Best Practices Lecture was given? I will remind you that you can answer honestly, as your answers given in this survey will in no way influence your grade in this class.",1. Yes 2. No,NA,NA,NA,NA
+PsyRep1,The field of psychology has problems replicating results.,1. disagree strongly 2. disagree 3. disagree slightly 4. neither disagree nor agree 5. agree slightly 6. agree 7. agree strongly,NA,NA,NA,NA
+PsyRep2,Replication of research is only a problem in the field of psychology.,1. disagree strongly 2. disagree 3. disagree slightly 4. neither disagree nor agree 5. agree slightly 6. agree 7. agree strongly,NA,NA,NA,NA
+PsyRep3,The incentive structure in psychological research can undermine the broader goals of science.,1. disagree strongly 2. disagree 3. disagree slightly 4. neither disagree nor agree 5. agree slightly 6. agree 7. agree strongly,NA,NA,NA,NA
+PsyRep4,The results from studies with low statistical power are by definition incorrect.,1. disagree strongly 2. disagree 3. disagree slightly 4. neither disagree nor agree 5. agree slightly 6. agree 7. agree strongly,NA,NA,NA,NA
+PsyRep5,Researchers who perform replication studies are not qualified to conduct psychological research.,1. disagree strongly 2. disagree 3. disagree slightly 4. neither disagree nor agree 5. agree slightly 6. agree 7. agree strongly,NA,NA,NA,NA
+PsyRep6,Studies that receive a lot of media attention are often reliable.,1. disagree strongly 2. disagree 3. disagree slightly 4. neither disagree nor agree 5. agree slightly 6. agree 7. agree strongly,NA,NA,NA,NA
+PsyRep7,It is important for a researcher to report all measures and experimental conditions that were included in a study.,1. disagree strongly 2. disagree 3. disagree slightly 4. neither disagree nor agree 5. agree slightly 6. agree 7. agree strongly,NA,NA,NA,NA
+PsyRep8,"For a researcher, how important is choosing a sample size before running a study?",1. not important at all 2. slightly important 3. moderately important 4. very important 5. extremely important,NA,NA,NA,NA
+PsyRep9,It is important for a researcher to disclose all measures and experimental conditions that were included in a study.,1. not important at all 2. slightly important 3. moderately important 4. very important 5. extremely important,NA,NA,NA,NA
+PsyRep10,How important is it to make data publicly available so that results can be verified by other researchers?,1. not important at all 2. slightly important 3. moderately important 4. very important 5. extremely important,NA,NA,NA,NA
+PsyRep11,"How important are decisions in data collection, analysis, and reporting in affecting how likely a researcher will find a significant effect?",1. not important at all 2. slightly important 3. moderately important 4. very important 5. extremely important,NA,NA,NA,NA
+PsyRep12,"How important is it to report studies that ""don't work out""?",1. not important at all 2. slightly important 3. moderately important 4. very important 5. extremely important,NA,NA,NA,NA
+PsyRep13,"Looking at your answer to the previous question, why do you think this way?",string,NA,NA,NA,NA
+PsyRep14,"How important is it that results from a psychology study are counter-intuitive (e.g., different from what you would expect)?",1. not important at all 2. slightly important 3. moderately important 4. very important 5. extremely important,NA,NA,NA,NA
+PsyRep15,Why do you think there is a replication crisis in psychology?,string,NA,NA,NA,NA
+PsyRep16,What are some things that can be done to increase reproducibility in psychological research?,string,NA,NA,NA,NA
+PsyRep17,"When evaluating the results of a study you read about, what factors would you look at to determine if it describes a reliable finding?",string,NA,NA,NA,NA
+PsyRep18,"When evaluating the results of a study you read about, what factors would you look at to determine if it describes a reliable finding?",string,NA,NA,NA,NA
+PsyRep19,What do you find most confusing about the Best Practices lecture?,string,NA,NA,NA,NA
+PsyRep20,What did you think was the most interesting part of the Best Practices lecture?,string,NA,NA,NA,NA
+PsyRep21,What is your age?,string,NA,NA,NA,NA
+PsyRep22,What is your gender?,string,NA,NA,NA,NA
+PsyRep23,How would you describe your racial/ethnic background?,1.White 2. Black or African American 3. Hispanic or Latino 4. Asian 5. Native Hawaiian or Other Pacific Islander 6. American Indian or Alaskan Native 7. Other 8. Don't Know/Not Sure,NA,NA,NA,NA
+PsyRep24,What year in school are you?,1. Freshman (1) 2. Sophomore (2) 3. Junior (3) 4. Senior (4) 5. Senior+ (5 or more),NA,NA,NA,NA
+PsyRep25,What is your major?,string,NA,NA,NA,NA
+PsyRep26,What is your GPA?,string,NA,NA,NA,NA
+PsyRep27,How many psychology classes have you taken?,string,NA,NA,NA,NA
+PsyRep28,Have you taken a statistics class in the past or are you currently enrolled in a statistics course?,1. Yes 2. No,NA,NA,NA,NA
+PsyRep29,Have you heard of the replication crisis in psychology prior to the Best Practices Lecture?,1. Yes 2. No,NA,NA,NA,NA
+PsyRep30,"We are interested in your feedback. If you have any additional comments or suggestions, please enter them in the box below.",string,NA,NA,NA,NA
+email,email,string,NA,NA,NA,NA
+TIME_start_time_2,Time Start,string,NA,NA,NA,NA
+TIME_end_time_2,Time End,string,NA,NA,NA,NA
+TIME_total_time_2,Time Total,numeric,NA,NA,NA,NA

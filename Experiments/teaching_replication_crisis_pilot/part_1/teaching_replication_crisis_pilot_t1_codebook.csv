@@ -1,0 +1,26 @@
+variable,label,value_labels,scale,subscale,keying,links
+like_psychology_time_1,I like psychology.,1. strongly disagree 2. disagree 3. slightly disagree 4. neither disagree nor agree 5. slightly agree 6. agree 7. strongly agree,NA,NA,NA,NA
+like_social_psychology_time_1,I like social psychology.,1. strongly disagree 2. disagree 3. slightly disagree 4. neither disagree nor agree 5. slightly agree 6. agree 7. strongly agree,NA,NA,NA,NA
+psych_similar_to_biology_time_1,"I think psychological research is similar to research in fields like chemistry, physics, or biology.",1. strongly disagree 2. disagree 3. slightly disagree 4. neither disagree nor agree 5. slightly agree 6. agree 7. strongly agree,NA,NA,NA,NA
+social_psych_similar_to_biology_time_1,"I think social psychological research is similar to research in fields like chemistry, physics, or biology.",1. strongly disagree 2. disagree 3. slightly disagree 4. neither disagree nor agree 5. slightly agree 6. agree 7. strongly agree,NA,NA,NA,NA
+psych_similar_to_philosophy_time_1,"I think psychological research is similar to research in fields like philosophy, literature, or modern languages.",1. strongly disagree 2. disagree 3. slightly disagree 4. neither disagree nor agree 5. slightly agree 6. agree 7. strongly agree,NA,NA,NA,NA
+social_psych_similar_to_philosophy_time_1,"I think social psychological research is similar to research in fields like philosophy, literature, or modern languages.",1. strongly disagree 2. disagree 3. slightly disagree 4. neither disagree nor agree 5. slightly agree 6. agree 7. strongly agree,NA,NA,NA,NA
+psych_is_soft_science_time_1,"I think psychology is a ""soft"" science.",1. strongly disagree 2. disagree 3. slightly disagree 4. neither disagree nor agree 5. slightly agree 6. agree 7. strongly agree,NA,NA,NA,NA
+social_psych_is_soft_science_time_1,"I think social psychology is a ""soft"" science.",1. strongly disagree 2. disagree 3. slightly disagree 4. neither disagree nor agree 5. slightly agree 6. agree 7. strongly agree,NA,NA,NA,NA
+graduate_school_psych_time_1,I am interested in pursuing graduate school in psychology.,1. strongly disagree 2. disagree 3. slightly disagree 4. neither disagree nor agree 5. slightly agree 6. agree 7. strongly agree,NA,NA,NA,NA
+graduate_school_social_psych_time_1,I am interested in pursuing graduate school in social psychology.,1. strongly disagree 2. disagree 3. slightly disagree 4. neither disagree nor agree 5. slightly agree 6. agree 7. strongly agree,NA,NA,NA,NA
+trust_work_by_psychologists_time_1,I trust the results of studies done by psychologists.,1. strongly disagree 2. disagree 3. slightly disagree 4. neither disagree nor agree 5. slightly agree 6. agree 7. strongly agree,NA,NA,NA,NA
+trust_work_by_social_psychologists_time_1,I trust the results of studies done by social psychologists.,1. strongly disagree 2. disagree 3. slightly disagree 4. neither disagree nor agree 5. slightly agree 6. agree 7. strongly agree,NA,NA,NA,NA
+selected_story_iv,Selected Story,"1. Study Links Warm Hands, Warm Heart. 2. Study: U.S. Flag 'Primes' Voters Toward Republican Viewpoints",NA,NA,NA,NA
+believable_time_1,How believable did you find the results of this study?,1. not at all believable 7. very believable,NA,NA,NA,NA
+replicable_time_1,"If another group of researchers were to run a study similar to the studies described on the previous page, how likely is it that this additional study would reach similar conclusions?",1. not at all unlikely 7. very likely,NA,NA,NA,NA
+surprising_time_1,How surprising were the results of this study?,1. not at all surprising 7. very surprising,NA,NA,NA,NA
+interested_time_1,How interested are you in reading the empirical article described in the media account?,1. not at all interested 7. very interested,NA,NA,NA,NA
+quality_time_1,How would you rate the quality of the research described on the previous page?,1. very low quality 7. very high quality,NA,NA,NA,NA
+attention_check_time_1,"Please choose the third option on the scale below (i.e., #3).",1. very low quality 7. very high quality,NA,NA,NA,NA
+impressions_time_1_text,What were your impressions and thoughts about this study?,string,NA,NA,NA,NA
+id,ID Number,numeric,NA,NA,NA,NA
+email,You have reached the end of the survey. Please enter your email address as proof of completion of the survey.,string,NA,NA,NA,NA
+TIME_start_time_1,Start Time,date,NA,NA,NA,NA
+TIME_end_time_1,End Time,date,NA,NA,NA,NA
+TIME_total_time_1,Total Time,date,NA,NA,NA,NA

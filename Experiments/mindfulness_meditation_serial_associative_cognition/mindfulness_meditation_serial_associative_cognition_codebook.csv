@@ -1,0 +1,143 @@
+variable,label,value_labels,scale,subscale,keying,links
+id,Participant ID,numeric,NA,NA,NA,NA
+date,Date of Study,date,NA,NA,NA,NA
+time,Time of Study,time,NA,NA,NA,NA
+condition_mindfulness,Experimental Mindfulness Condition,1. Control 2. Mindfulness,NA,NA,NA,NA
+avoidance_of_anchoring_total,Avoidance of Anchoring - Total Score,numeric,NA,NA,NA,NA
+avoidance_of_preference_anomalies_total,Avoidance of Preference Anomalies - Total Score,numeric,NA,NA,NA,NA
+avoidance_of_framing_total,Avoidance of Framing - Total Score,numeric,NA,NA,NA,NA
+serial_associative_cognition_total,Serial Associative Cognition - Total Score,numeric,NA,NA,NA,NA
+cognitive_reflection_test_total,Cognitive Reflection Test - Total Score - Number of correct responses,numeric,NA,NA,NA,NA
+duration_listening_to_audio,Amount of time participants spent listening to the audio,numeric,NA,NA,NA,NA
+gender,Gender of Participant,1. Male 2. Female 3. Other,NA,NA,NA,NA
+age,Age of Participant,numeric,NA,NA,NA,NA
+belief_in_god,Do you believe in God?,1. No 2. Yes,NA,NA,NA,NA
+irrelevence_of_religion,How important is religion in your daily life?,1. Highest Importance 2. Very Important 3. Important 4. Unimportant 5. Very Important 6. Irrelevant,NA,NA,NA,NA
+conservative_ideology,Self-placement on Ideological Spectrum,1.Very Liberal 11. Very Conservative,NA,NA,NA,NA
+guess_certainty,Certainty of Guess,numeric,NA,NA,NA,NA
+preference_anomalies_block_1_item_1a,Items are proprietary,Items are proprietary,Avoidance of Preference Anomalies,NA,NA,NA
+preference_anomalies_block_1_item_2a,Items are proprietary,Items are proprietary,Avoidance of Preference Anomalies,NA,NA,NA
+preference_anomalies_block_1_item_3a,Items are proprietary,Items are proprietary,Avoidance of Preference Anomalies,NA,NA,NA
+preference_anomalies_block_1_item_4a,Items are proprietary,Items are proprietary,Avoidance of Preference Anomalies,NA,NA,NA
+preference_anomalies_block_1_item_5a,Items are proprietary,Items are proprietary,Avoidance of Preference Anomalies,NA,NA,NA
+preference_anomalies_block_1_item_6a,Items are proprietary,Items are proprietary,Avoidance of Preference Anomalies,NA,NA,NA
+preference_anomalies_block_1_item_7a,Items are proprietary,Items are proprietary,Avoidance of Preference Anomalies,NA,NA,NA
+preference_anomalies_block_1_item_8a,Items are proprietary,Items are proprietary,Avoidance of Preference Anomalies,NA,NA,NA
+preference_anomalies_block_1_item_9a,Items are proprietary,Items are proprietary,Avoidance of Preference Anomalies,NA,NA,NA
+avoidance_of_framing_block_1_item_11a,Items are proprietary,Items are proprietary,Avoidance of Framing,NA,NA,NA
+avoidance_of_framing_block_1_item_1b,Items are proprietary,Items are proprietary,Avoidance of Framing,NA,NA,NA
+avoidance_of_framing_block_1_item_8a,Items are proprietary,Items are proprietary,Avoidance of Framing,NA,NA,NA
+avoidance_of_framing_block_1_item_2b,Items are proprietary,Items are proprietary,Avoidance of Framing,NA,NA,NA
+avoidance_of_framing_block_1_item_3a,Items are proprietary,Items are proprietary,Avoidance of Framing,NA,NA,NA
+avoidance_of_framing_block_1_item_4b,Items are proprietary,Items are proprietary,Avoidance of Framing,NA,NA,NA
+avoidance_of_framing_block_1_item_5a,Items are proprietary,Items are proprietary,Avoidance of Framing,NA,NA,NA
+avoidance_of_framing_block_1_item_6a,Items are proprietary,Items are proprietary,Avoidance of Framing,NA,NA,NA
+avoidance_of_framing_block_1_item_7b,Items are proprietary,Items are proprietary,Avoidance of Framing,NA,NA,NA
+avoidance_of_framing_block_1_item_9a,Items are proprietary,Items are proprietary,Avoidance of Framing,NA,NA,NA
+avoidance_of_framing_block_1_item_10a,Items are proprietary,Items are proprietary,Avoidance of Framing,NA,NA,NA
+avoidance_of_anchoring_item_1a,Items are proprietary,Items are proprietary,Avoidance of Anchoring,NA,NA,NA
+avoidance_of_anchoring_item_1b,Items are proprietary,Items are proprietary,Avoidance of Anchoring,NA,NA,NA
+avoidance_of_anchoring_item_2a,Items are proprietary,Items are proprietary,Avoidance of Anchoring,NA,NA,NA
+avoidance_of_anchoring_item_2b,Items are proprietary,Items are proprietary,Avoidance of Anchoring,NA,NA,NA
+avoidance_of_anchoring_item_3a,Items are proprietary,Items are proprietary,Avoidance of Anchoring,NA,NA,NA
+avoidance_of_anchoring_item_3b,Items are proprietary,Items are proprietary,Avoidance of Anchoring,NA,NA,NA
+avoidance_of_anchoring_item_4a,Items are proprietary,Items are proprietary,Avoidance of Anchoring,NA,NA,NA
+avoidance_of_anchoring_item_4b,Items are proprietary,Items are proprietary,Avoidance of Anchoring,NA,NA,NA
+avoidance_of_anchoring_item_5a,Items are proprietary,Items are proprietary,Avoidance of Anchoring,NA,NA,NA
+avoidance_of_anchoring_item_5b,Items are proprietary,Items are proprietary,Avoidance of Anchoring,NA,NA,NA
+avoidance_of_anchoring_item_6a,Items are proprietary,Items are proprietary,Avoidance of Anchoring,NA,NA,NA
+avoidance_of_anchoring_item_6b,Items are proprietary,Items are proprietary,Avoidance of Anchoring,NA,NA,NA
+avoidance_of_anchoring_item_7a,Items are proprietary,Items are proprietary,Avoidance of Anchoring,NA,NA,NA
+avoidance_of_anchoring_item_7b,Items are proprietary,Items are proprietary,Avoidance of Anchoring,NA,NA,NA
+avoidance_of_anchoring_item_8a,Items are proprietary,Items are proprietary,Avoidance of Anchoring,NA,NA,NA
+avoidance_of_anchoring_item_8b,Items are proprietary,Items are proprietary,Avoidance of Anchoring,NA,NA,NA
+cognitive_reflection_test_1,Items are proprietary,Items are proprietary,Cognitive Reflection Test,NA,NA,NA
+cognitive_reflection_test_2,Items are proprietary,Items are proprietary,Cognitive Reflection Test,NA,NA,NA
+cognitive_reflection_test_3,Items are proprietary,Items are proprietary,Cognitive Reflection Test,NA,NA,NA
+cognitive_reflection_test_4,Items are proprietary,Items are proprietary,Cognitive Reflection Test,NA,NA,NA
+cognitive_reflection_test_5,Items are proprietary,Items are proprietary,Cognitive Reflection Test,NA,NA,NA
+cognitive_reflection_test_6,Items are proprietary,Items are proprietary,Cognitive Reflection Test,NA,NA,NA
+cognitive_reflection_test_7,Items are proprietary,Items are proprietary,Cognitive Reflection Test,NA,NA,NA
+preference_anomalies_block_2_item_1b,Items are proprietary,Items are proprietary,Avoidance of Preference Anomalies,NA,NA,NA
+preference_anomalies_block_2_item_2b,Items are proprietary,Items are proprietary,Avoidance of Preference Anomalies,NA,NA,NA
+preference_anomalies_block_2_item_3b,Items are proprietary,Items are proprietary,Avoidance of Preference Anomalies,NA,NA,NA
+preference_anomalies_block_2_item_4b,Items are proprietary,Items are proprietary,Avoidance of Preference Anomalies,NA,NA,NA
+preference_anomalies_block_2_item_5b,Items are proprietary,Items are proprietary,Avoidance of Preference Anomalies,NA,NA,NA
+preference_anomalies_block_2_item_6b,Items are proprietary,Items are proprietary,Avoidance of Preference Anomalies,NA,NA,NA
+preference_anomalies_block_2_item_7b,Items are proprietary,Items are proprietary,Avoidance of Preference Anomalies,NA,NA,NA
+preference_anomalies_block_2_item_8b,Items are proprietary,Items are proprietary,Avoidance of Preference Anomalies,NA,NA,NA
+preference_anomalies_block_2_item_9b,Items are proprietary,Items are proprietary,Avoidance of Preference Anomalies,NA,NA,NA
+avoidance_of_framing_block_2_item_11b,Items are proprietary,Items are proprietary,Avoidance of Framing,NA,NA,NA
+avoidance_of_framing_block_2_item_1a,Items are proprietary,Items are proprietary,Avoidance of Framing,NA,NA,NA
+avoidance_of_framing_block_2_item_8b,Items are proprietary,Items are proprietary,Avoidance of Framing,NA,NA,NA
+avoidance_of_framing_block_2_item_2a,Items are proprietary,Items are proprietary,Avoidance of Framing,NA,NA,NA
+avoidance_of_framing_block_2_item_3b,Items are proprietary,Items are proprietary,Avoidance of Framing,NA,NA,NA
+avoidance_of_framing_block_2_item_4a,Items are proprietary,Items are proprietary,Avoidance of Framing,NA,NA,NA
+avoidance_of_framing_block_2_item_5b,Items are proprietary,Items are proprietary,Avoidance of Framing,NA,NA,NA
+avoidance_of_framing_block_2_item_6b,Items are proprietary,Items are proprietary,Avoidance of Framing,NA,NA,NA
+avoidance_of_framing_block_2_item_7a,Items are proprietary,Items are proprietary,Avoidance of Framing,NA,NA,NA
+avoidance_of_framing_block_2_item_9b,Items are proprietary,Items are proprietary,Avoidance of Framing,NA,NA,NA
+avoidance_of_framing_block_2_item_10b,Items are proprietary,Items are proprietary,Avoidance of Framing,NA,NA,NA
+reaction_time_preference_anomalies_block_1_item_1a,Items are proprietary,Items are proprietary,Avoidance of Preference Anomalies,NA,NA,NA
+reaction_time_preference_anomalies_block_1_item_2a,Items are proprietary,Items are proprietary,Avoidance of Preference Anomalies,NA,NA,NA
+reaction_time_preference_anomalies_block_1_item_3a,Items are proprietary,Items are proprietary,Avoidance of Preference Anomalies,NA,NA,NA
+reaction_time_preference_anomalies_block_1_item_4a,Items are proprietary,Items are proprietary,Avoidance of Preference Anomalies,NA,NA,NA
+reaction_time_preference_anomalies_block_1_item_5a,Items are proprietary,Items are proprietary,Avoidance of Preference Anomalies,NA,NA,NA
+reaction_time_preference_anomalies_block_1_item_6a,Items are proprietary,Items are proprietary,Avoidance of Preference Anomalies,NA,NA,NA
+reaction_time_preference_anomalies_block_1_item_7a,Items are proprietary,Items are proprietary,Avoidance of Preference Anomalies,NA,NA,NA
+reaction_time_preference_anomalies_block_1_item_8a,Items are proprietary,Items are proprietary,Avoidance of Preference Anomalies,NA,NA,NA
+reaction_time_preference_anomalies_block_1_item_9a,Items are proprietary,Items are proprietary,Avoidance of Preference Anomalies,NA,NA,NA
+reaction_time_avoidance_of_framing_block_1_item_11a,Items are proprietary,Items are proprietary,Avoidance of Framing,NA,NA,NA
+reaction_time_avoidance_of_framing_block_1_item_1b,Items are proprietary,Items are proprietary,Avoidance of Framing,NA,NA,NA
+reaction_time_avoidance_of_framing_block_1_item_8a,Items are proprietary,Items are proprietary,Avoidance of Framing,NA,NA,NA
+reaction_time_avoidance_of_framing_block_1_item_2b,Items are proprietary,Items are proprietary,Avoidance of Framing,NA,NA,NA
+reaction_time_avoidance_of_framing_block_1_item_3a,Items are proprietary,Items are proprietary,Avoidance of Framing,NA,NA,NA
+reaction_time_avoidance_of_framing_block_1_item_4b,Items are proprietary,Items are proprietary,Avoidance of Framing,NA,NA,NA
+reaction_time_avoidance_of_framing_block_1_item_5a,Items are proprietary,Items are proprietary,Avoidance of Framing,NA,NA,NA
+reaction_time_avoidance_of_framing_block_1_item_6a,Items are proprietary,Items are proprietary,Avoidance of Framing,NA,NA,NA
+reaction_time_avoidance_of_framing_block_1_item_7b,Items are proprietary,Items are proprietary,Avoidance of Framing,NA,NA,NA
+reaction_time_avoidance_of_framing_block_1_item_9a,Items are proprietary,Items are proprietary,Avoidance of Framing,NA,NA,NA
+reaction_time_avoidance_of_framing_block_1_item_10a,Items are proprietary,Items are proprietary,Avoidance of Framing,NA,NA,NA
+reaction_time_avoidance_of_anchoring_item_1a,Items are proprietary,Items are proprietary,Avoidance of Anchoring,NA,NA,NA
+reaction_time_avoidance_of_anchoring_item_1b,Items are proprietary,Items are proprietary,Avoidance of Anchoring,NA,NA,NA
+reaction_time_avoidance_of_anchoring_item_2a,Items are proprietary,Items are proprietary,Avoidance of Anchoring,NA,NA,NA
+reaction_time_avoidance_of_anchoring_item_2b,Items are proprietary,Items are proprietary,Avoidance of Anchoring,NA,NA,NA
+reaction_time_avoidance_of_anchoring_item_3a,Items are proprietary,Items are proprietary,Avoidance of Anchoring,NA,NA,NA
+reaction_time_avoidance_of_anchoring_item_3b,Items are proprietary,Items are proprietary,Avoidance of Anchoring,NA,NA,NA
+reaction_time_avoidance_of_anchoring_item_4a,Items are proprietary,Items are proprietary,Avoidance of Anchoring,NA,NA,NA
+reaction_time_avoidance_of_anchoring_item_4b,Items are proprietary,Items are proprietary,Avoidance of Anchoring,NA,NA,NA
+reaction_time_avoidance_of_anchoring_item_5a,Items are proprietary,Items are proprietary,Avoidance of Anchoring,NA,NA,NA
+reaction_time_avoidance_of_anchoring_item_5b,Items are proprietary,Items are proprietary,Avoidance of Anchoring,NA,NA,NA
+reaction_time_avoidance_of_anchoring_item_6a,Items are proprietary,Items are proprietary,Avoidance of Anchoring,NA,NA,NA
+reaction_time_avoidance_of_anchoring_item_6b,Items are proprietary,Items are proprietary,Avoidance of Anchoring,NA,NA,NA
+reaction_time_avoidance_of_anchoring_item_7a,Items are proprietary,Items are proprietary,Avoidance of Anchoring,NA,NA,NA
+reaction_time_avoidance_of_anchoring_item_7b,Items are proprietary,Items are proprietary,Avoidance of Anchoring,NA,NA,NA
+reaction_time_avoidance_of_anchoring_item_8a,Items are proprietary,Items are proprietary,Avoidance of Anchoring,NA,NA,NA
+reaction_time_avoidance_of_anchoring_item_8b,Items are proprietary,Items are proprietary,Avoidance of Anchoring,NA,NA,NA
+reaction_time_cognitive_reflection_test_1,Items are proprietary,Items are proprietary,Cognitive Reflection Test,NA,NA,NA
+reaction_time_cognitive_reflection_test_2,Items are proprietary,Items are proprietary,Cognitive Reflection Test,NA,NA,NA
+reaction_time_cognitive_reflection_test_3,Items are proprietary,Items are proprietary,Cognitive Reflection Test,NA,NA,NA
+reaction_time_cognitive_reflection_test_4,Items are proprietary,Items are proprietary,Cognitive Reflection Test,NA,NA,NA
+reaction_time_cognitive_reflection_test_5,Items are proprietary,Items are proprietary,Cognitive Reflection Test,NA,NA,NA
+reaction_time_cognitive_reflection_test_6,Items are proprietary,Items are proprietary,Cognitive Reflection Test,NA,NA,NA
+reaction_time_cognitive_reflection_test_7,Items are proprietary,Items are proprietary,Cognitive Reflection Test,NA,NA,NA
+reaction_time_preference_anomalies_block_2_item_1b,Items are proprietary,Items are proprietary,Avoidance of Preference Anomalies,NA,NA,NA
+reaction_time_preference_anomalies_block_2_item_2b,Items are proprietary,Items are proprietary,Avoidance of Preference Anomalies,NA,NA,NA
+reaction_time_preference_anomalies_block_2_item_3b,Items are proprietary,Items are proprietary,Avoidance of Preference Anomalies,NA,NA,NA
+reaction_time_preference_anomalies_block_2_item_4b,Items are proprietary,Items are proprietary,Avoidance of Preference Anomalies,NA,NA,NA
+reaction_time_preference_anomalies_block_2_item_5b,Items are proprietary,Items are proprietary,Avoidance of Preference Anomalies,NA,NA,NA
+reaction_time_preference_anomalies_block_2_item_6b,Items are proprietary,Items are proprietary,Avoidance of Preference Anomalies,NA,NA,NA
+reaction_time_preference_anomalies_block_2_item_7b,Items are proprietary,Items are proprietary,Avoidance of Preference Anomalies,NA,NA,NA
+reaction_time_preference_anomalies_block_2_item_8b,Items are proprietary,Items are proprietary,Avoidance of Preference Anomalies,NA,NA,NA
+reaction_time_preference_anomalies_block_2_item_9b,Items are proprietary,Items are proprietary,Avoidance of Preference Anomalies,NA,NA,NA
+reaction_time_avoidance_of_framing_block_2_item_11b,Items are proprietary,Items are proprietary,Avoidance of Framing,NA,NA,NA
+reaction_time_avoidance_of_framing_block_2_item_1a,Items are proprietary,Items are proprietary,Avoidance of Framing,NA,NA,NA
+reaction_time_avoidance_of_framing_block_2_item_8b,Items are proprietary,Items are proprietary,Avoidance of Framing,NA,NA,NA
+reaction_time_avoidance_of_framing_block_2_item_2a,Items are proprietary,Items are proprietary,Avoidance of Framing,NA,NA,NA
+reaction_time_avoidance_of_framing_block_2_item_3b,Items are proprietary,Items are proprietary,Avoidance of Framing,NA,NA,NA
+reaction_time_avoidance_of_framing_block_2_item_4a,Items are proprietary,Items are proprietary,Avoidance of Framing,NA,NA,NA
+reaction_time_avoidance_of_framing_block_2_item_5b,Items are proprietary,Items are proprietary,Avoidance of Framing,NA,NA,NA
+reaction_time_avoidance_of_framing_block_2_item_6b,Items are proprietary,Items are proprietary,Avoidance of Framing,NA,NA,NA
+reaction_time_avoidance_of_framing_block_2_item_7a,Items are proprietary,Items are proprietary,Avoidance of Framing,NA,NA,NA
+reaction_time_avoidance_of_framing_block_2_item_9b,Items are proprietary,Items are proprietary,Avoidance of Framing,NA,NA,NA
+reaction_time_avoidance_of_framing_block_2_item_10b,Items are proprietary,Items are proprietary,Avoidance of Framing,NA,NA,NA
