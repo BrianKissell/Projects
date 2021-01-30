@@ -1,0 +1,34 @@
+variable,label,value_labels,scale,subscale,Keying,links
+id,ID Number,numeric,NA,NA,NA,NA
+threat,Religious vs. Geographic Change,1. Religious Change 2. Demographic Change,NA,NA,NA,https://drive.google.com/file/d/1Ay5S0XrTS6LEKoeuz0Q1WyRH_8BiZp_1/view?usp=sharing
+reading_comprehension_1,The data discussed in this article was gathered ____.,1. by a telephone interview company 2. by the U.S. Census Bureau 3. in lab studies across the country,Reading Comprehension,NA,NA,https://drive.google.com/file/d/1JYkJCN5AkxUAprJ4IWJ_OT6EWzlVgSv4/view?usp=sharing
+reading_comprehension_2,The national trend discussed in this article suggests that individuals are _____ over time.,1. becoming more religious 2. becoming less religious 3. not changing in regards to their religious beliefs,Reading Comprehension,NA,NA,NA
+reading_comprehension_3,"By 2042, researchers predict that within the United States ____.",1. religious people will no longer be in the majority 2. religious people will no longer be in the minority 3. religious people will return to being in the majority,Reading Comprehension,NA,NA,NA
+reading_comprehension_4,The trends discussed in this article are expected to be driven by ____.,1. millennials 2. baby boomers 3. members of the greatest generation,Reading Comprehension,NA,NA,NA
+reading_comprehension_5,These trends are expected to continue regardless of culture.,1. True 2. False,Reading Comprehension,NA,NA,NA
+religious_evaluative_bias_1,I would be completely comfortable in a social setting (such as a dance club or bar) where there were very few people from my religion.,1. Strongly Agree 2. Agree 3. Neutral 4. Disagree 5. Strongly Disagree,Religious Evaluative Bias,NA,1,NA
+religious_evaluative_bias_2,I would be completely comfortable dating someone of a different religion (if I was single).,1. Strongly Agree 2. Agree 3. Neutral 4. Disagree 5. Strongly Disagree,Religious Evaluative Bias,NA,1,NA
+religious_evaluative_bias_3,It would bother me if my child married someone from a different religious background.,1. Strongly Agree 2. Agree 3. Neutral 4. Disagree 5. Strongly Disagree,Religious Evaluative Bias,NA,1,NA
+religious_evaluative_bias_4,I would prefer to live in a neighborhood with people of my same religion.,1. Strongly Agree 2. Agree 3. Neutral 4. Disagree 5. Strongly Disagree,Religious Evaluative Bias,NA,1,NA
+religious_evaluative_bias_5,"If I were living with others in a house or an apartment, I would be more comfortable if my roommates were from my same religious background.",1. Strongly Agree 2. Agree 3. Neutral 4. Disagree 5. Strongly Disagree,Religious Evaluative Bias,NA,1,NA
+religious_evaluative_bias_6,I would rather work alongside people of my same religion.,1. Strongly Agree 2. Agree 3. Neutral 4. Disagree 5. Strongly Disagree,Religious Evaluative Bias,NA,1,NA
+gender,What is your gender?,1. Female 2. Male 3. Other,Demographics,NA,NA,NA
+age,What is your age?,numeric,Demographics,NA,NA,NA
+zipcode,What is the zip code for the location in which you have spent the largest portion of your life?,numeric,Demographics,NA,NA,NA
+conservative_ideology,Please indicate were you would fall on the Liberal/Conservative spectrum?,1. Very Liberal 11. Very Conservative,Political Beliefs,NA,NA,NA
+right_ideology,Please indicate were you would fall on the Left/Right spectrum?,1. Very Left 11. Very Right,Political Beliefs,NA,NA,NA
+god_belief,Do you believe in God?,1. No 2. Yes,Religiosity,NA,NA,NA
+certain_of_god_belief,"In regards to your stated belief or unbelief in God, how certain are you?",1. Very Uncertain 2. Uncertain 3. Moderately Uncertain 4. Neutral 5. Moderately Certain 6. Certain 7. Very Certain,Religiosity,NA,NA,NA
+importance_of_religion,How important is religion in your daily life?,1. Irrelevant 2. Very Unimportant 3. Unimportant 4. Important 5. Very important 6. Highest Importance,Religiosity,NA,NA,NA
+religious_attendance,"Aside from weddings and funerals, how often do you attend religious services?",1. Never 2. Seldom 3. A few times a year 4. Once or twice a year 5. Once a week 6. More than once a week,Religiosity,NA,NA,NA
+frequency_of_prayer,"Outside of attending religious services, how often do you pray?",1. Never 2. A few times a month 3. Once a week 4. A few times a week 5. Seldom 6. Once a day 7. Multiple times a day,Religiosity,NA,NA,NA
+religious_affiliation,Please circle your religious affiliation.,1. Agnostic 2. Atheist 3. Buddhist 4. Chinese traditional 5. Christian 6. Christian (specifically Catholic) 7. Christian (specifically Protestant) 8. Hindu 9. Muslim 10. No religion 11. Sikh 12. Other,Religiosity,NA,NA,NA
+belief_in_heaven,There is a heaven where people who have led good lives are eternally rewarded.,1. I strongly disagree 2. I disagree 3. I don't know 4. I agree 5. I strongly agree,Religious Beliefs,NA,1,NA
+belief_in_hell,There is a hell where people who have led bad lives and die without being sorry are eternally punished.,1. I strongly disagree 2. I disagree 3. I don't know 4. I agree 5. I strongly agree,Religious Beliefs,NA,1,NA
+belief_in_miracles,Religious miracles occur.,1. I strongly disagree 2. I disagree 3. I don't know 4. I agree 5. I strongly agree,Religious Beliefs,NA,1,NA
+belief_in_angels,Angels and demons are active in the world.,1. I strongly disagree 2. I disagree 3. I don't know 4. I agree 5. I strongly agree,Religious Beliefs,NA,1,NA
+belief_in_life_after_death,There is a life after death.,1. I strongly disagree 2. I disagree 3. I don't know 4. I agree 5. I strongly agree,Religious Beliefs,NA,1,NA
+belief_in_the_soul,"People have an immaterial soul, a part of themselves that is beyond their merely physiological and physical properties.",1. I strongly disagree 2. I disagree 3. I don't know 4. I agree 5. I strongly agree,Religious Beliefs,NA,1,NA
+not_naive,Did you participated in that previous study?,1. No 2. Yes,NA,NA,NA,NA
+political_ideology_total,Political Ideology Score,numeric,NA,NA,NA,NA
+religious_belief_total,Religious Belief Score,numeric,NA,NA,NA,NA

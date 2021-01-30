@@ -1,0 +1,68 @@
+variable,label,value_labels,scale,subscale,Keying,links
+id,ID Number,numeric,NA,NA,NA,NA
+iv1_write,Writing Manipulation,1.Write about an everyday experience 2. Write about a spiritual experience,NA,NA,NA,https://docs.google.com/document/d/e/2PACX-1vQ3SzCWj4twMI2S113bUabp6oewRt4ZQK2o2ZpFdKwIAVPyjfCUO2ekgRCZxhN1rsLjFRV3MScmnFR7/pub
+iv1_text,Text from those who wrote about Religious Experience,string,NA,NA,NA,NA
+iv2_threat,Threat Manipulation,1. Control 2. Religious Threat,NA,NA,NA,NA
+comprehension_question,"According to this paragraph, the rate of acceptance of Christian beliefs (or BMI) within the United States",0. No 1. Yes,NA,NA,NA,NA
+crt_1,CRT1: A bat and a ball cost $1.10 in total. The bat costs a dollar more than the ball. How much does the ball cost?,string,Cognitive Reflection Test,NA,NA,NA
+crt_2,"CRT2: If it takes 5 machines 5 minutes to make 5 widgets, how long would it take 100 machines to make 100 widgets?",string,Cognitive Reflection Test,NA,NA,NA
+crt_3,"CRT3: In a lake, there is a patch of lily pads. Every day, the patch doubles in size. If it takes 48 days for the patch to cover the entire lake, how long would it take for the patch to cover half of the lake?",string,Cognitive Reflection Test,NA,NA,NA
+crt_4,"CRT4: If John can drink one barrel of water in 6 days, and Mary can drink one barrel of water in 12 days, how long would it take them to drink one barrel of water together?",string,Cognitive Reflection Test,NA,NA,NA
+crt_5,CRT5: Jerry received both the 15th highest and the 15th lowest mark in the class. How many students are in the class?,string,Cognitive Reflection Test,NA,NA,NA
+crt_6,"CRT6: A man buys a pig for $60, sells it for $70, buys it back for $80, and sells it finally for $90. How much has he made?",string,Cognitive Reflection Test,NA,NA,NA
+crt_7,"CRT7: Simon decided to invest $8,000 in the stock market one day early in 2008. Six months after he invested, on July 17, the stocks he had purchased were down 50%. Fortunately for Simon, from July 17 to October 17, the stocks he had purchased went up 75%",string,Cognitive Reflection Test,NA,NA,NA
+crt_naive,Have you ever participated in a study that asked you any of the previous 7 questions?,1. Yes 2. No,NA,NA,NA,NA
+nfc_1,I would prefer complex to simple problems.,1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Need for Cognition Scale,NA,NA,NA
+nfc_2,I like to have the responsibility of handling a situation that requires a lot of thinking.,1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Need for Cognition Scale,NA,NA,NA
+nfc_3,Thinking is not my idea of fun.,1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Need for Cognition Scale,NA,NA,NA
+nfc_4,I would rather do something that requires little thought than something that is sure to challenge my thinking abilities.,1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Need for Cognition Scale,NA,NA,NA
+nfc_5,I try to anticipate and avoid situations where there is likely chance I will have to think in depth about something.,1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Need for Cognition Scale,NA,NA,NA
+nfc_6,I find satisfaction in deliberating hard and for long hours.,1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Need for Cognition Scale,NA,NA,NA
+nfc_7,I only think as hard as I have to.,1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Need for Cognition Scale,NA,NA,NA
+nfc_8,"I prefer to think about small, daily projects to long-term ones.",1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Need for Cognition Scale,NA,NA,NA
+nfc_9,I like tasks that require little thought once I've learned them.,1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Need for Cognition Scale,NA,NA,NA
+nfc_10,The idea of relying on thought to make my way to the top appeals to me.,1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Need for Cognition Scale,NA,NA,NA
+nfc_11,I really enjoy a task that involves coming up with new solutions to problems.,1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Need for Cognition Scale,NA,NA,NA
+nfc_12,Learning new ways to think doesn't excite me very much.,1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Need for Cognition Scale,NA,NA,NA
+nfc_13,I prefer my life to be filled with puzzles that I must solve.,1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Need for Cognition Scale,NA,NA,NA
+nfc_14,The notion of thinking abstractly is appealing to me.,1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Need for Cognition Scale,NA,NA,NA
+nfc_15,"I would prefer a task that is intellectual, difficult, and important to one that is somewhat important but does not require much thought.",1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Need for Cognition Scale,NA,NA,NA
+nfc_16,I feel relief rather than satisfaction after completing a task that required a lot of mental effort. - extremely uncharacteristic of me,1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Need for Cognition Scale,NA,NA,NA
+nfc_17,It's enough for me that something gets the job done; I don't care how or why it works.,1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Need for Cognition Scale,NA,NA,NA
+nfc_18,I usually end up deliberating about issues even when they do not affect me personally.,1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Need for Cognition Scale,NA,NA,NA
+fii_1,My initial impressions of people are almost always right.,1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Faith in Intuition Scale,NA,NA,NA
+fii_2,I trust my initial feelings about people.,1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Faith in Intuition Scale,NA,NA,NA
+fii_3,"When it comes to trusting people, I can usually rely on my ""gut feelings.""",1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Faith in Intuition Scale,NA,NA,NA
+fii_4,I believe in trusting my hunches.,1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Faith in Intuition Scale,NA,NA,NA
+fii_5,I can usually feel when a person is right or wrong even if I can't explain how I know.,1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Faith in Intuition Scale,NA,NA,NA
+fii_6,I am a very intuitive person.,1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Faith in Intuition Scale,NA,NA,NA
+fii_7,I can typically sense right away when a person is lying.,1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Faith in Intuition Scale,NA,NA,NA
+fii_8,I am quick to form impressions about people.,1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Faith in Intuition Scale,NA,NA,NA
+fii_9,I believe I can judge character pretty well from a person's appearance.,1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Faith in Intuition Scale,NA,NA,NA
+fii_10,I often have clear visual images of things.,1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Faith in Intuition Scale,NA,NA,NA
+fii_11,I have a very good sense of rhythm.,1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Faith in Intuition Scale,NA,NA,NA
+fii_12,I am good at visualizing things.,1. extremely uncharacteristic of me 2. somewhat uncharacteristic of me 3. uncertain 4. somewhat characteristic of me 5. extremely characteristic of me,Faith in Intuition Scale,NA,NA,NA
+reaction_time_crt_1,Reaction time for CRT - Item 1,numeric,Reaction Time for CRT,NA,NA,NA
+reaction_time_crt_2,Reaction time for CRT - Item 2,numeric,Reaction Time for CRT,NA,NA,NA
+reaction_time_crt_3,Reaction time for CRT - Item 3,numeric,Reaction Time for CRT,NA,NA,NA
+reaction_time_crt_4,Reaction time for CRT - Item 4,numeric,Reaction Time for CRT,NA,NA,NA
+reaction_time_crt_5,Reaction time for CRT - Item 5,numeric,Reaction Time for CRT,NA,NA,NA
+reaction_time_crt_6,Reaction time for CRT - Item 6,numeric,Reaction Time for CRT,NA,NA,NA
+reaction_time_crt_7,Reaction time for CRT - Item 7,numeric,Reaction Time for CRT,NA,NA,NA
+nfc_fii_naive,Have you ever participated in a study that asked you any of the previous 30 questions?,1. Yes 2. No,NA,NA,NA,NA
+age,How old are you?,numeric,Demographics,NA,NA,NA
+gender,What is your gender?,1. Male 2. Female 3. Other,Demographics,NA,NA,NA
+god_belief,Do you believe in God?,1. No 2. Yes,Religiosity,NA,NA,NA
+certain_of_god_belief,"In regards to your stated belief or unbelief in God, how certain are you?",1. Very Uncertain 2. Uncertain 3. Moderately Uncertain 4. Neutral 5. Moderately Certain 6. Certain 7. Very Certain,Religiosity,NA,NA,NA
+prayer_frequency,How often do you pray?,1. Never 2. A few times a month 3. Once a week 4. A few times a week 5. Seldom 6. Once a day 7. Multiple times a day,Religiosity,NA,NA,NA
+prayer_duration,What is the average time that you usually pray (in minutes)?,1. 0 Seconds 2. 1-30 Seconds 3. 31-60 Seconds 4. 1-2 Minutes 5. 2-3 Minutes 6. 3-4 Minutes 7. 4-5 Minutes 8. 5-6 Minutes 9. 6-7 Minutes 10. 7-8 Minutes 11. 8-9 Minutes,Religiosity,NA,NA,NA
+religious_attendance,How often do you attend religious services?,1. Never 2. Seldom 3. A few times a year 4. Once or twice a year 5. Once a week 6. More than once a week,Religiosity,NA,NA,NA
+religious_affiliation,What is your religious denomination?,1. Agnostic 2. Atheist 3. Buddhist 4. Chinese traditional 5. Christian 6. Christian (specifically Catholic) 7. Christian (specifically Protestant) 8. Hindu 9. Muslim 10. No religion 11. Sikh 12. Other,Religiosity,NA,NA,NA
+previous_knowledge,Please indicate what you knew about this experiment before participating.,string,NA,NA,NA,NA
+purpose_guess,Sometimes experiments study questions that are not obvious. You will now be asked to indicate a research question that you believe might be under investigation in this experiment. You can type in the possible research question that you believe may have be,sting,NA,NA,NA,NA
+purpose_guess_certainty,How certain are you that the research question you just typed in is in fact under investigation in this study?,1. I did not type in a guess. 2. Not at all certain. It is a total guess. 3. A little certain. 4. Moderately certain. 5. Quite certain. 6. 100% certain. This is what is being studied.,NA,NA,NA,NA
+start_time,Start Time,date and time,NA,NA,NA,NA
+end_time,End Time,date and time,NA,NA,NA,NA
+nfc_total,Need for Cognition: Total Score,numeric,NA,NA,NA,NA
+fii_total,Faith in Intuition: Total Score,numeric,NA,NA,NA,NA
+crt_total,Correct Answers on the CRT,numeric,NA,NA,NA,NA

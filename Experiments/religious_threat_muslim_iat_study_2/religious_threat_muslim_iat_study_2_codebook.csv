@@ -1,0 +1,49 @@
+variable,label,value_labels,scale,subscale,Keying,links
+id,ID Number,numeric,NA,NA,NA,NA
+date,Date of Experiment,date,NA,NA,NA,NA
+time,Time of Experiment,time,NA,NA,NA,NA
+condition,Experimental Condition,1. religious_threat and IAT_1st 2. religious_threat and IAT_2nd 3. geographic_location and IAT_1st 4. geographic_location and IAT_2nd,NA,NA,NA,NA
+threat,Religious vs. Demographic Text,1. Religious Change 2. Demographic Change,NA,NA,NA,Stimuli: https://docs.google.com/document/d/e/2PACX-1vQ_CGyB9jxvALiOoZPJ70ts3ZBDBhUYRsPATpcrVQt6MFM4y1afrErIWj_T8grPhCvF-qniT9iW7G2q/pub
+iat_order,IAT Order,1. 1st 2. 2nd,NA,NA,NA,NA
+gender,Gender,1. Male 2. Female 3. Other,Demographics,NA,NA,NA
+age,Age,numeric,Demographics,NA,NA,NA
+zipcode,Zip Code (What is the zip code of the area in which you grew up?),numeric,Demographics,NA,NA,NA
+conservative_ideology,Conservative/Liberal Ideology,1. Very Liberal 11. Very Conservative,Political Beliefs,NA,NA,NA
+right_ideology,Right/Left Ideology,1. Very Left 11. Very Right,Political Beliefs,NA,NA,NA
+syrian_refugees,The U.S. should welcome more Syrian war refugees into the country,1. I strongly disagree 2. I disagree 3. I don't know 4. I agree 5. I strongly agree,Political Beliefs,NA,-1,NA
+health_care,The United States Government should ensure access to healthcare for all of its citizens,1. I strongly disagree 2. I disagree 3. I don't know 4. I agree 5. I strongly agree,Political Beliefs,NA,-1,NA
+muslim_Immigration,"Muslims should not be allowed to immigrate into the United States, at least temporarily.",1. I strongly disagree 2. I disagree 3. I don't know 4. I agree 5. I strongly agree,Political Beliefs,NA,1,NA
+abortion,Abortion should remain a legal right for women in the U.S.,1. I strongly disagree 2. I disagree 3. I don't know 4. I agree 5. I strongly agree,Political Beliefs,NA,1,NA
+deport_immigrants,Undocumented residents should be deported from the United States.,1. I strongly disagree 2. I disagree 3. I don't know 4. I agree 5. I strongly agree,Political Beliefs,NA,-1,NA
+taxes,Taxes within the United States are generally far too high.,1. I strongly disagree 2. I disagree 3. I don't know 4. I agree 5. I strongly agree,Political Beliefs,NA,1,NA
+border_wall,Congress should allocate funds towards building a wall between Mexico and the United States.,1. I strongly disagree 2. I disagree 3. I don't know 4. I agree 5. I strongly agree,Political Beliefs,NA,-1,NA
+god_belief,Do you believe in God?,1. No 2. Yes,Religious Beliefs,NA,NA,NA
+certain_of_god_belief,"In regards to your stated belief or unbelief in God, how certain are you?",1. Very Uncertain 2. Uncertain 3. Moderately Uncertain 4. Neutral 5. Moderately Certain 6. Certain 7. Very Certain,Religious Beliefs,NA,NA,NA
+importance_of_religion,How important is religion in your daily life?,1. Irrelevant 2. Very Unimportant 3. Unimportant 4. Important 5. Very important 6. Highest Importance,Religious Beliefs,NA,NA,NA
+religious_attendance,"Aside from weddings and funerals, how often do you attend religious services?",1. Never 2. Seldom 3. A few times a year 4. Once or twice a year 5. Once a week 6. More than once a week,Religious Beliefs,NA,NA,NA
+frequency_of_prayer,"Outside of attending religious services, how often do you pray?",1. Never 2. A few times a month 3. Once a week 4. A few times a week 5. Seldom 6. Once a day 7. Multiple times a day,Religious Beliefs,NA,NA,NA
+religious_affiliation,Religious Affiliation,1. Agnostic 2. Atheist 3. Buddhist 4. Chinese traditional 5. Christian 6. Christian (specifically Catholic) 7. Christian (specifically Protestant) 8. Hindu 9. Muslim 10. No religion 11. Sikh 12. Other,Religious Beliefs,NA,NA,NA
+belief_in_heaven,There is a heaven where people who have led good lives are eternally rewarded.,1. I strongly disagree 2. I disagree 3. I don't know 4. I agree 5. I strongly agree,Religious Beliefs,NA,NA,NA
+belief_in_hell,There is a hell where people who have led bad lives and die without being sorry are eternally punished.,1. I strongly disagree 2. I disagree 3. I don't know 4. I agree 5. I strongly agree,Religious Beliefs,NA,NA,NA
+belief_in_miracles,Religious miracles occur.,1. I strongly disagree 2. I disagree 3. I don't know 4. I agree 5. I strongly agree,Religious Beliefs,NA,NA,NA
+belief_in_angels,Angels and demons are active in the world.,1. I strongly disagree 2. I disagree 3. I don't know 4. I agree 5. I strongly agree,Religious Beliefs,NA,NA,NA
+belief_in_life_after_death,There is a life after death.,1. I strongly disagree 2. I disagree 3. I don't know 4. I agree 5. I strongly agree,Religious Beliefs,NA,NA,NA
+belief_in_the_soul,"People have an immaterial soul, a part of themselves that is beyond their merely physiological and physical properties.",1. I strongly disagree 2. I disagree 3. I don't know 4. I agree 5. I strongly agree,Religious Beliefs,NA,NA,NA
+text_comprehension_G_1,The data discussed in this article was gathered ____.,1. by a telephone interview company 2. by the U.S. Census Bureau 3. in lab studies across the country 99. NA ,Text Comprehension,NA,NA,NA
+text_comprehension_G_2,The national trend discussed in this article suggests that individuals are _____ over time.,1. becoming more likely to move 2. becoming less likely to move 3. not changing in regards to their likelihood of moving 99. NA,Text Comprehension,NA,NA,NA
+text_comprehension_G_3,How many individuals changed residence within the past year?,1. Less than 3 million 2. About 15 million 3. More than 30 million 99. NA,Text Comprehension,NA,NA,NA
+text_comprehension_G_4,What proportions of individuals who moved last year were reported to move to another location within their state?,1. Less than 15% 2. About 50% 3. More than 80% 99. NA,Text Comprehension,NA,NA,NA
+text_comprehension_G_5,The increasing rate of individuals moving is expected to continue regardless of culture or public policy.,1. True 2. False 99. NA,Text Comprehension,NA,NA,NA
+duration_reading_text_G,How long did they read the article? (geographic location change),numeric,Text Comprehension,NA,NA,NA
+text_comprehension_R_1,The data discussed in this article was gathered ____.,1. by a telephone interview company 2. by the U.S. Census Bureau 3. in lab studies across the country 99. NA,Text Comprehension,NA,NA,NA
+text_comprehension_R_2,The national trend discussed in this article suggests that individuals are _____ over time.,1. becoming more religious 2. becoming less religious 3. not changing in regards to their religious beliefs,Text Comprehension,NA,NA,NA
+text_comprehension_R_3,"By 2042, researchers predict that within the United States ____.",1. religious people will no longer be in the majority 2. religious people will no longer be in the minority 3. religious people will return to being in the majority,Text Comprehension,NA,NA,NA
+text_comprehension_R_4,The trends discussed in this article are expected to be driven by ____.,1. millennials 2. baby boomers 3. members of the greatest generation,Text Comprehension,NA,NA,NA
+text_comprehension_R_5,These trends are expected to continue regardless of culture.,1. True 2. False 99. NA,Text Comprehension,NA,NA,NA
+duration_reading_text_R,How long did they read the article? (religious demographic change),numeric,Text Comprehension,NA,NA,NA
+certain_of_guess,How certain are you that you know what the study was about?, numeric,Other (What is the study about?),NA,NA,NA
+duration_reading_text_ALL,Reaction time - How long did they read the article?,numeric,Text Comprehension,NA,NA,NA
+correct_reading_comprehension,Correct reading comprehension answers,numeric,Text Comprehension,NA,NA,NA
+religious_belief_total,Total score for religious belief questions,numeric,NA,NA,NA,NA
+conservative_political_belief_total,Total score for conservative political belief questions,numeric,NA,NA,NA,NA
+IAT_score,IAT Score (practice excluded),numeric,IAT Score,NA,NA,Images: https://docs.google.com/document/d/e/2PACX-1vRpDcA2KIBaj_mC4QfyIyypRcCHxdr2F-aM3SStTM1SI9q_hYJiSnuM7g29xfSX_QQ_w-Ptu9BwJ9Cm/pub
