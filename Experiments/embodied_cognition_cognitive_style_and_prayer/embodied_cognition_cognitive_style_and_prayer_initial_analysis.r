@@ -154,3 +154,5 @@ df_clean %>% rstatix::welch_anova_test(crt_total ~ cognitive_task)
 df_clean %>% rstatix::welch_anova_test(crt_total ~ physical_position)
 df_clean %>% rstatix::group_by(physical_position) %>% welch_anova_test(crt_total ~ cognitive_task)
 df_clean %>% rstatix::group_by(cognitive_task) %>% welch_anova_test(crt_total ~ physical_position )
+
+summary(glm(crt_total~cognitive_task*physical_position, data = df_clean, family = "poisson"))
