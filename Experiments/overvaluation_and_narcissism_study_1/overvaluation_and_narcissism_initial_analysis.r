@@ -7,6 +7,7 @@ library(lubridate)
 library(naniar)
 library(broom)
 library(emmeans)
+library(outliers)
 theme_set(theme_gdocs())
 
 # Import data
@@ -31,6 +32,19 @@ df_clean <- df %>%
 any_na(df_clean)
 vis_miss(df_clean)
 
+# Prepare data for assumption tests
+control_npi <- df_clean %>% filter(condition == "Control")
+cold_npi <- df_clean %>% filter(condition == "Cold")
+overvalue_npi <- df_clean %>% filter(condition == "Overvalue")
+
+# Outlier Detection
+boxplot(control_npi$npi_total)
+grubbs.test(control_npi$npi_total)
+boxplot(cold_npi$npi_total)
+grubbs.test(cold_npi$npi_total)
+boxplot(overvalue_npi$npi_total)
+grubbs.test(overvalue_npi$npi_total)
+
 # Check assumptions for analysis of variance 
 # 1) The responses for each factor level have a normal population distribution. 
 
@@ -42,11 +56,8 @@ df_clean %>%
     labs(x = "Narcissistic Personality Inventory")
 
 # Run Shapiro's test
-control_npi <- df_clean %>% filter(condition == "Control")
 shapiro.test(control_npi$npi_total)
-cold_npi <- df_clean %>% filter(condition == "Cold")
 shapiro.test(cold_npi$npi_total)
-overvalue_npi <- df_clean %>% filter(condition == "Overvalue")
 shapiro.test(overvalue_npi$npi_total)
 
 # 2) These distributions have the same variance.
@@ -65,6 +76,29 @@ ggplot(df_clean, aes(x = condition, y = npi_total, fill = condition)) +
   labs(title = "Task-feedback and the Narcissistic Personality Inventory", y = "Proportion of NPI Items Selected", x = "Task Feedback Condition", fill = "Gender of Participant") +
   scale_y_continuous( breaks = c(0.0, .25, .5, .75, 1.0))
 
+#######################################################################################
+# Prepare to test assumptions
+control_npi_male <- df_clean %>% filter(condition =="Control", gender == "Male")
+cold_npi_male <- df_clean %>% filter(condition =="Cold", gender == "Male")
+overvalue_npi_male <- df_clean %>% filter(condition =="Overvalue", gender == "Male")
+control_npi_female <- df_clean %>% filter(condition =="Control", gender == "Female")
+cold_npi_female <- df_clean %>% filter(condition =="Cold", gender == "Female")
+overvalue_npi_female <- df_clean %>% filter(condition =="Overvalue", gender == "Female")
+
+# Outlier Detection
+boxplot(control_npi_male$npi_total)
+grubbs.test(control_npi_male$npi_total)
+boxplot(cold_npi_male $npi_total)
+grubbs.test(cold_npi_male $npi_total)
+boxplot(overvalue_npi_male$npi_total)
+grubbs.test(overvalue_npi_male$npi_total)
+boxplot(control_npi_female$npi_total)
+grubbs.test(control_npi_female$npi_total)
+boxplot(cold_npi_female$npi_total)
+grubbs.test(cold_npi_female$npi_total)
+boxplot(overvalue_npi_female$npi_total)
+grubbs.test(overvalue_npi_female$npi_total)
+
 # Check assumptions for analysis of variance for the 2X3 ANOVA
 # 1) The responses for each factor level have a normal population distribution. 
 
@@ -76,18 +110,12 @@ df_clean %>%
   labs(x = "Narcissistic Personality Inventory")
 
 # Run Shapiro's test
-control_npi <- df_clean %>% filter(condition =="Control", gender == "Male")
-shapiro.test(control_npi$npi_total)
-cold_npi <- df_clean %>% filter(condition =="Cold", gender == "Male")
-shapiro.test(cold_npi$npi_total)
-overvalue_npi <- df_clean %>% filter(condition =="Overvalue", gender == "Male")
-shapiro.test(overvalue_npi$npi_total)
-control_npi <- df_clean %>% filter(condition =="Control", gender == "Female")
-shapiro.test(control_npi$npi_total)
-cold_npi <- df_clean %>% filter(condition =="Cold", gender == "Female")
-shapiro.test(cold_npi$npi_total)
-overvalue_npi <- df_clean %>% filter(condition =="Overvalue", gender == "Female")
-shapiro.test(overvalue_npi$npi_total)
+shapiro.test(control_npi_male$npi_total)
+shapiro.test(cold_npi_male$npi_total)
+shapiro.test(overvalue_npi_male$npi_total)
+shapiro.test(control_npi_female$npi_total)
+shapiro.test(cold_npi_female$npi_total)
+shapiro.test(overvalue_npi_female$npi_total)
 
 # 2) These distributions have the same variance.
 male_npi <- df_clean %>% filter(gender == "Male")
