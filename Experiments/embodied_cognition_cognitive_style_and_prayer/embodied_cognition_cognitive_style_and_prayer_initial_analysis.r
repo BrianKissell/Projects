@@ -13,6 +13,7 @@ library(tidyr)
 library(outliers)
 library(ggpubr)
 library(moments)
+library(GGally)
 theme_set(theme_gdocs())
 
 # Import data
@@ -28,8 +29,14 @@ df_clean <- df %>%
   mutate(
     gender = factor(gender, levels = c(1,2), labels = c("Male", "Female")),
     cognitive_task = factor(cognitive_task, levels = c(1,2), labels = c("Pray", "Think")), 
-    physical_position = factor(physical_position, levels = c(1,2), labels = c("Kneel", "Stand")))
-
+    physical_position = factor(physical_position, levels = c(1,2), labels = c("Kneel", "Stand")),
+    male = ifelse(gender == "Male", 1, 0),
+    female = ifelse(gender == "Female", 1, 0),
+    christian = factor(ifelse(denomination == 1, 1, 0)),
+    nonaffiliated = factor(ifelse(denomination == 2, 1, 0)),
+    atheist = factor(ifelse(denomination == 3, 1, 0)),
+    other_religion = factor(ifelse(denomination ==4, 1, 0))
+)
 # Check data again
 glimpse(df_clean)
 
@@ -137,7 +144,6 @@ shapiro.test(df_clean$crt_total)
 # Check Skewness
 skewness(df_clean$crt_total, na.rm = TRUE)
 
-
 # Check for equal variances
 bartlett.test(df_clean$crt_total ~ df_clean$physical_position )
 bartlett.test(df_clean$crt_total ~ df_clean$cognitive_task)
@@ -156,3 +162,7 @@ df_clean %>% rstatix::group_by(physical_position) %>% welch_anova_test(crt_total
 df_clean %>% rstatix::group_by(cognitive_task) %>% welch_anova_test(crt_total ~ physical_position )
 
 summary(glm(crt_total~cognitive_task*physical_position, data = df_clean, family = "poisson"))
+
+##### Create visualization with most of the variables
+cor_df <- df_clean %>% select(age, gender, belief_in_god, certainty_of_belief_in_god, frequency_of_prayer, duration_of_prayer, frequency_of_religious_services, christian, nonaffiliated, atheist, other_religion, nfc_total, fii_total, crt_total)
+ggpairs(cor_df)
