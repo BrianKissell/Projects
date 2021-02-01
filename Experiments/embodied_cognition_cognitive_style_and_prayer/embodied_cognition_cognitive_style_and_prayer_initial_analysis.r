@@ -100,7 +100,9 @@ shapiro.test(df_clean$fii_total)
 # Check Skewness
 skewness(df_clean$fii_total, na.rm = TRUE)
 
-df_clean$fii_total_square <- df_clean$fii_total ** 2
+# Anchor variable at 1, and then transform the variable.
+summary(df_clean$fii_total)
+df_clean$fii_total_square <- (df_clean$fii_total - 18) ** 2
 
 # Visually inspect distributions
 df_clean %>%
