@@ -1,0 +1,535 @@
+,state,name,twitter_handle
+0,AK ,Lisa Murkowski ,@lisamurkowski
+1,AK ,Dan Sullivan ,@SenDanSullivan
+2,AL ,Doug Jones ,@SenDougJones
+3,AL ,Richard C. Shelby ,@SenShelby
+4,AR ,John Boozman ,@JohnBoozman
+5,AR ,Tom Cotton ,@SenTomCotton
+6,AZ ,Martha McSally ,@SenMcSallyAZ
+7,AZ ,Kyrsten Sinema ,@SenatorSinema
+8,CA ,Dianne Feinstein ,@SenFeinstein
+9,CA ,Kamala D. Harris ,@SenKamalaHarris
+10,CO ,Michael F. Bennet ,@SenatorBennet
+11,CO ,Cory Gardner ,@SenCoryGardner
+12,CT ,Richard Blumenthal ,@SenBlumenthal
+13,CT ,Christopher Murphy ,@SenMurphyOffice
+14,DE ,Thomas R. Carper ,@SenatorCarper
+15,DE ,Christopher A. Coons ,@ChrisCoons
+16,FL ,Marco Rubio ,@SenRubioPress
+17,FL ,Rick Scott ,@SenRickScott
+18,GA ,Johnny Isakson ,@SenatorIsakson
+19,GA ,David Perdue ,@sendavidperdue
+20,HI ,Mazie K. Hirono ,@maziehirono
+21,HI ,Brian Schatz ,@SenBrianSchatz
+22,IA ,Joni Ernst ,@SenJoniErnst
+23,IA ,Chuck Grassley ,@ChuckGrassley
+24,ID ,Mike Crapo ,@MikeCrapo
+25,ID ,James E. Risch ,@SenatorRisch
+26,IL ,Tammy Duckworth ,@SenDuckworth
+27,IL ,Richard J. Durbin ,@SenatorDurbin
+28,IN ,Mike Braun ,@SenatorBraun
+29,IN ,Todd Young ,@SenToddYoung
+30,KS ,Jerry Moran ,@JerryMoran
+31,KS ,Pat Roberts ,@SenPatRoberts
+32,KY ,Mitch McConnell ,@SenateMajLdr
+33,KY ,Rand Paul ,@RandPaul
+34,LA ,Bill Cassidy ,@SenBillCassidy
+35,LA ,John Kennedy ,@SenJohnKennedy
+36,MA ,Edward J. Markey ,@SenMarkey
+37,MA ,Elizabeth Warren ,@SenWarren
+38,MD ,Benjamin L. Cardin ,@SenatorCardin
+39,MD ,Chris Van Hollen ,@ChrisVanHollen
+40,ME ,Susan M. Collins ,@SenatorCollins
+41,ME ,Angus S. King Jr. ,@SenAngusKing
+42,MI ,Gary C. Peters ,@SenGaryPeters
+43,MI ,Debbie Stabenow ,@SenStabenow
+44,MN ,Amy Klobuchar ,@SenAmyKlobuchar
+45,MN ,Tina Smith ,@SenTinaSmith
+46,MO ,Roy Blunt ,@RoyBlunt
+47,MO ,Josh Hawley ,@SenHawleyPress
+48,MS ,Cindy Hyde-Smith ,@SenHydeSmith
+49,MS ,Roger F. Wicker ,@SenatorWicker
+50,MT ,Steve Daines ,@SteveDaines
+51,MT ,Jon Tester ,@SenatorTester
+52,NC ,Richard Burr ,@SenatorBurr
+53,NC ,Thom Tillis ,@SenThomTillis
+54,ND ,Kevin Cramer ,@SenKevinCramer
+55,ND ,John Hoeven ,@SenJohnHoeven
+56,NE ,Deb Fischer ,@SenatorFischer
+57,NE ,Ben Sasse ,@SenSasse
+58,NH ,Margaret Wood Hassan ,@SenatorHassan
+59,NH ,Jeanne Shaheen ,@SenatorShaheen
+60,NJ ,Cory A. Booker ,@SenBooker
+61,NJ ,Robert Menendez ,@SenatorMenendez
+62,NM ,Martin Heinrich ,@MartinHeinrich
+63,NM ,Tom Udall ,@SenatorTomUdall
+64,NV ,Catherine Cortez Masto ,@SenCortezMasto
+65,NV ,Jacky Rosen ,@SenJackyRosen
+66,NY ,Kirsten E. Gillibrand ,@gillibrandny
+67,NY ,Charles E. Schumer ,@SenSchumer
+68,OH ,Sherrod Brown ,@SenSherrodBrown
+69,OH ,Rob Portman ,@senrobportman
+70,OK ,James M. Inhofe ,@JimInhofe
+71,OK ,James Lankford ,@SenatorLankford
+72,OR ,Jeff Merkley ,@SenJeffMerkley
+73,OR ,Ron Wyden ,@RonWyden
+74,PA ,Robert P. Casey Jr. ,@SenBobCasey
+75,PA ,Patrick J. Toomey ,@SenToomey
+76,RI ,Jack Reed ,@SenJackReed
+77,RI ,Sheldon Whitehouse ,@SenWhitehouse
+78,SC ,Lindsey Graham ,@LindseyGrahamSC
+79,SC ,Tim Scott ,@SenatorTimScott
+80,SD ,Mike Rounds ,@SenatorRounds
+81,SD ,John Thune ,@SenJohnThune
+82,TN ,Lamar Alexander ,@SenAlexander
+83,TN ,Marsha Blackburn ,@MarshaBlackburn
+84,TX ,John Cornyn ,@JohnCornyn
+85,TX ,Ted Cruz ,@SenTedCruz
+86,UT ,Mike Lee ,@SenMikeLee
+87,UT ,Mitt Romney ,@SenatorRomney
+88,VA ,Time Kaine ,N/A
+89,VA ,Mark R. Warner ,@MarkWarner
+90,VT ,Patrick J. Leahy ,@SenatorLeahy
+91,VT ,Bernard Sanders ,@SenSanders
+92,WA ,Maria Cantwell ,@SenatorCantwell
+93,WA ,Patty Murray ,@PattyMurray
+94,WI ,Tammy Baldwin ,@SenatorBaldwin
+95,WI ,Ron Johnson ,@SenRonJohnson
+96,WV ,Shelley Moore Capito ,@SenCapito
+97,WV ,Joe Manchin III ,@Sen_JoeManchin
+98,WY ,John Barrasso ,@SenJohnBarrasso
+99,WY ,Michael B. Enzi ,@SenatorEnzi
+100,AK - ,Don Young ,@repdonyoung
+101,AL-01,Bradley Byrne ,@RepByrne
+102,AL-02,Martha Roby ,@RepMarthaRoby
+103,AL-03,Mike Rogers ,@RepMikeRogersAL
+104,AL-04,Robert B. Aderholt ,@Robert_Aderholt
+105,AL-05,Mo Brooks ,@RepMoBrooks
+106,AL-06,Gary J. Palmer ,@USRepGaryPalmer
+107,AL-07,Terri A. Sewell ,@RepTerriSewell
+108,AR-01,"Eric A. ""Rick"" Crawford ",@RepRickCrawford
+109,AR-02,J. French Hill ,@RepFrenchHill
+110,AR-03,Steve Womack ,@rep_stevewomack
+111,AR-04,Bruce Westerman ,@RepWesterman
+112,AZ-01,Tom O'Halleran ,@RepOHalleran
+113,AZ-02,Ann Kirkpatrick ,@RepKirkpatrick
+114,AZ-03,Raúl M. Grijalva ,@RepRaulGrijalva
+115,AZ-04,Paul A. Gosar ,@RepGosar
+116,AZ-05,Andy Biggs ,@RepAndyBiggsAZ
+117,AZ-06,David Schweikert ,@RepDavid
+118,AZ-07,Ruben Gallego ,@RepRubenGallego
+119,AZ-08,Debbie Lesko ,@RepDLesko
+120,AZ-09,Greg Stanton ,@RepGregStanton
+121,CA-01,Doug LaMalfa ,@RepLaMalfa
+122,CA-02,Jared Huffman ,@RepHuffman
+123,CA-03,John Garamendi ,@RepGaramendi
+124,CA-04,Tom McClintock ,@RepMcClintock
+125,CA-05,Mike Thompson ,@RepThompson
+126,CA-06,Doris O. Matsui ,@DorisMatsui
+127,CA-07,Ami Bera ,@RepBera
+128,CA-08,Paul Cook ,@RepPaulCook
+129,CA-09,Jerry McNerney ,@RepMcNerney
+130,CA-10,Josh Harder ,@RepJoshHarder
+131,CA-11,Mark DeSaulnier ,@RepDeSaulnier
+132,CA-12,Nancy Pelosi ,@SpeakerPelosi
+133,CA-13,Barbara Lee ,@RepBarbaraLee
+134,CA-14,Jackie Speier ,@RepSpeier
+135,CA-15,Eric Swalwell ,@RepSwalwell
+136,CA-16,Jim Costa ,@RepJimCosta
+137,CA-17,Ro Khanna ,@RepRoKhanna
+138,CA-18,Anna G. Eshoo ,@RepAnnaEshoo
+139,CA-19,Zoe Lofgren ,@RepZoeLofgren
+140,CA-20,Jimmy Panetta ,@RepJimmyPanetta
+141,CA-21,TJ Cox ,@RepTjCox
+142,CA-22,Devin Nunes ,@RepDevinNunes
+143,CA-23,Kevin McCarthy ,@GOPLeader
+144,CA-24,Salud O. Carbajal ,@RepCarbajal
+145,CA-25,Katie Hill ,@RepKatieHill
+146,CA-26,Julia Brownley ,@RepBrownley
+147,CA-27,Judy Chu ,@RepJudyChu
+148,CA-28,Adam B. Schiff ,@RepAdamSchiff
+149,CA-29,Tony Cárdenas ,@RepCardenas
+150,CA-30,Brad Sherman ,@BradSherman
+151,CA-31,Pete Aguilar ,@RepPeteAguilar
+152,CA-32,Grace F. Napolitano ,@gracenapolitano
+153,CA-33,Ted Lieu ,@RepTedLieu
+154,CA-34,Jimmy Gomez ,@RepJimmyGomez
+155,CA-35,Norma J. Torres ,@NormaJTorres
+156,CA-36,Raul Ruiz ,@CongressmanRuiz
+157,CA-37,Karen Bass ,@RepKarenBass
+158,CA-38,Linda T. Sánchez ,@RepLindaSanchez
+159,CA-39,Gilbert Ray Jr. Cisneros ,@RepGilCisneros
+160,CA-40,Lucille Roybal-Allard ,@RepRoybalAllard
+161,CA-41,Mark Takano ,@RepMarkTakano
+162,CA-42,Ken Calvert ,@KenCalvert
+163,CA-43,Maxine Waters ,@RepMaxineWaters
+164,CA-44,Nanette Diaz Barragán ,@RepBarragan
+165,CA-45,Katie Porter ,@RepKatiePorter
+166,CA-46,J. Luis Correa ,@RepLouCorrea
+167,CA-47,Alan S. Lowenthal ,@RepLowenthal
+168,CA-48,Harley Rouda ,@RepHarley
+169,CA-49,Mike Levin ,@RepMikeLevin
+170,CA-50,Duncan Hunter ,@Rep_Hunter
+171,CA-51,Juan Vargas ,@RepJuanVargas
+172,CA-52,Scott H. Peters ,@RepScottPeters
+173,CA-53,Susan A. Davis ,@RepSusanDavis
+174,CO-01,Diana DeGette ,@RepDianaDeGette
+175,CO-02,Joe Neguse ,@RepJoeNeguse
+176,CO-03,Scott R. Tipton ,@RepTipton
+177,CO-04,Ken Buck ,@RepKenBuck
+178,CO-05,Doug Lamborn ,@RepDLamborn
+179,CO-06,Jason Crow ,@RepJasonCrow
+180,CO-07,Ed Perlmutter ,@RepPerlmutter
+181,CT-01,John B. Larson ,@RepJohnLarson
+182,CT-02,Joe Courtney ,@RepJoeCourtney
+183,CT-03,Rosa L. DeLauro ,@rosadelauro
+184,CT-04,James A. Himes ,@jahimes
+185,CT-05,Jahana Hayes ,@RepJahanaHayes
+186,DE - ,Lisa Blunt Rochester ,@RepLBR
+187,DC ,Eleanor Holmes Norton ,@EleanorNorton
+188,FL-01,Matt Gaetz ,@RepMattGaetz
+189,FL-02,Neal P. Dunn ,@DrNealDunnFL2
+190,FL-03,Ted S. Yoho ,@RepTedYoho
+191,FL-04,John H. Rutherford ,@RepRutherfordFL
+192,FL-05,Al Lawson Jr. ,@RepAlLawsonJr
+193,FL-06,Michael Waltz ,@RepMichaelWaltz
+194,FL-07,Stephanie N. Murphy ,@RepStephMurphy
+195,FL-08,Bill Posey ,@congbillposey
+196,FL-09,Darren Soto ,@RepDarrenSoto
+197,FL-10,Val Butler Demings ,@RepValDemings
+198,FL-11,Daniel Webster ,@RepWebster
+199,FL-12,Gus M. Bilirakis ,@RepGusBilirakis
+200,FL-13,Charlie Crist ,@RepCharlieCrist
+201,FL-14,Kathy Castor ,@USRepKCastor
+202,FL-15,Dennis A. Ross ,N/A
+203,FL-16,Vern Buchanan ,@VernBuchanan
+204,FL-17,W. Gregory Steube ,@RepGregSteube
+205,FL-18,Brian J. Mast ,@RepBrianMast
+206,FL-19,Francis Rooney ,@RepRooney
+207,FL-20,Alcee L. Hastings ,@RepHastingsFL
+208,FL-21,Lois Frankel ,@RepLoisFrankel
+209,FL-22,Theodore E. Deutch ,@RepTedDeutch
+210,FL-23,Debbie Wasserman Schultz ,@RepDWStweets
+211,FL-24,Frederica S. Wilson ,@RepWilson
+212,FL-25,Mario Diaz-Balart ,@MarioDB
+213,FL-26,Debbie Mucarsel-Powell ,@RepDMP
+214,FL-27,Donna E. Shalala ,@RepShalala
+215,GA-01,"Earl L. ""Buddy"" Carter ",@RepBuddyCarter
+216,GA-02,Sanford D. Bishop ,@SanfordBishop
+217,GA-03,A. Drew Ferguson ,@RepDrewFerguson
+218,GA-04,"Henry C. ""Hank"" Johnson Jr. ",@RepHankJohnson
+219,GA-05,John Lewis ,@repjohnlewis
+220,GA-06,Lucy McBath ,@RepLucyMcBath
+221,GA-07,Rob Woodall ,@RepRobWoodall
+222,GA-08,Austin Scott ,@AustinScottGA08
+223,GA-09,Doug Collins ,@RepDougCollins
+224,GA-10,Jody B. Hice ,@CongressmanHice
+225,GA-11,Barry Loudermilk ,@RepLoudermilk
+226,GA-12,Rick W. Allen ,@RepRickAllen
+227,GA-13,David Scott ,@repdavidscott
+228,GA-14,Tom Graves ,@RepTomGraves
+229,HI-01,Ed Case ,@RepEdCase
+230,HI-02,Tulsi Gabbard ,@TulsiPress
+231,IA-01,Abby Finkenauer ,@RepFinkenauer
+232,IA-02,David Loebsack ,@daveloebsack
+233,IA-03,Cynthia Axne ,@RepCindyAxne
+234,IA-04,Steve King ,N/A
+235,ID-01,Russ Fulcher ,@RepRussFulcher
+236,ID-02,Michael K. Simpson ,@CongMikeSimpson
+237,IL-01,Bobby L. Rush ,@RepBobbyRush
+238,IL-02,Robin L. Kelly ,@RepRobinKelly
+239,IL-03,Daniel Lipinski ,@RepLipinski
+240,IL-04,"Jesús ""Chuy"" García ",@RepChuyGarcia
+241,IL-05,Mike Quigley ,@RepMikeQuigley
+242,IL-06,Sean Casten ,@RepCasten
+243,IL-07,Danny K. Davis ,@RepDannyDavis
+244,IL-08,Raja Krishnamoorthi ,@CongressmanRaja
+245,IL-09,"Janice ""Jan"" D. Schakowsky ",@janschakowsky
+246,IL-10,Bradley Scott Schneider ,@RepSchneider
+247,IL-11,Bill Foster ,@RepBillFoster
+248,IL-12,Mike Bost ,@RepBost
+249,IL-13,Rodney Davis ,@RodneyDavis
+250,IL-14,Lauren Underwood ,@RepUnderwood
+251,IL-15,John Shimkus ,@RepShimkus
+252,IL-16,Adam Kinzinger ,@RepKinzinger
+253,IL-17,Cheri Bustos ,@RepCheri
+254,IL-18,Darin LaHood ,@RepLaHood
+255,IN-01,Peter J. Visclosky ,@RepVisclosky
+256,IN-02,Jackie Walorski ,@RepWalorski
+257,IN-03,Jim Banks ,@RepJimBanks
+258,IN-04,James Baird ,@RepJimBaird
+259,IN-05,Susan W. Brooks ,@SusanWBrooks
+260,IN-06,Greg Pence ,@RepGregPence
+261,IN-07,André Carson ,@RepAndreCarson
+262,IN-08,Larry Bucshon ,@RepLarryBucshon
+263,IN-09,Trey Hollingsworth ,@RepTrey
+264,KS-01,Roger W. Marshall ,N/A
+265,KS-02,Steven Watkins ,N/A
+266,KS-03,Sharice Davids ,@RepDavids
+267,KS-04,Ron Estes ,@RepRonEstes
+268,KY-01,James Comer ,N/A
+269,KY-02,Brett Guthrie ,@RepGuthrie
+270,KY-03,John A. Yarmuth ,@RepJohnYarmuth
+271,KY-04,Thomas Massie ,@RepThomasMassie
+272,KY-05,Harold Rogers ,@RepHalRogers
+273,KY-06,Andy Barr ,@RepAndyBarr
+274,LA-01,Steve Scalise ,@SteveScalise
+275,LA-02,Cedric L. Richmond ,@RepRichmond
+276,LA-03,Clay Higgins ,@RepClayHiggins
+277,LA-04,Mike Johnson ,@RepMikeJohnson
+278,LA-05,Ralph Lee Abraham ,@RepAbraham
+279,LA-06,Garret Graves ,@RepGarretGraves
+280,ME-01,Chellie Pingree ,@chelliepingree
+281,ME-02,Jared Golden ,@RepGolden
+282,MD-01,Andy Harris ,@RepAndyHarrisMD
+283,MD-02,C. A. Dutch Ruppersberger ,@Call_Me_Dutch
+284,MD-03,John P. Sarbanes ,@RepSarbanes
+285,MD-04,Anthony G. Brown ,@RepAnthonyBrown
+286,MD-05,Steny H. Hoyer ,@LeaderHoyer
+287,MD-06,David Trone ,@RepDavidTrone
+288,MD-07,Elijah Cummings ,@RepCummings
+289,MD-08,Jamie Raskin ,@RepRaskin
+290,MA-01,Richard E. Neal ,@RepRichardNeal
+291,MA-02,James P. McGovern ,@RepMcGovern
+292,MA-03,Lori Trahan ,@RepLoriTrahan
+293,MA-04,Joseph P. Kennedy ,@RepJoeKennedy
+294,MA-05,Katherine M. Clark ,@RepKClark
+295,MA-06,Seth Moulton ,@teammoulton
+296,MA-07,Ayanna Pressley ,@RepPressley
+297,MA-08,Stephen F. Lynch ,@RepStephenLynch
+298,MA-09,William R. Keating ,@USRepKeating
+299,MI-01,Jack Bergman ,@RepJackBergman
+300,MI-02,Bill Huizenga ,@RepHuizenga
+301,MI-03,Justin Amash ,@justinamash
+302,MI-04,John R. Moolenaar ,@RepMoolenaar
+303,MI-05,Daniel T. Kildee ,@RepDanKildee
+304,MI-06,Fred Upton ,@RepFredUpton
+305,MI-07,Tim Walberg ,@RepWalberg
+306,MI-08,Elissa Slotkin ,@RepSlotkin
+307,MI-09,Sander M. Levin ,@RepAndyLevin
+308,MI-10,Paul Mitchell ,@RepPaulMitchell
+309,MI-11,Haley Stevens ,@RepHaleyStevens
+310,MI-12,Debbie Dingell ,@RepDebDingell
+311,MI-13,Rashida Tlaib ,@RepRashida
+312,MI-14,Brenda L. Lawrence ,@RepLawrence
+313,MN-01,Jim Hagedorn ,@RepHagedorn
+314,MN-02,Angie Craig ,@RepAngieCraig
+315,MN-03,Dean Phillips ,@RepDeanPhillips
+316,MN-04,Betty McCollum ,@BettyMcCollum04
+317,MN-05,Ilhan Omar ,@Ilhan
+318,MN-06,Tom Emmer ,@RepTomEmmer
+319,MN-07,Collin C. Peterson ,N/A
+320,MN-8,Pete Stauber ,@RepPeteStauber
+321,MO-01,Wm. Lacy Clay Jr ,@LacyClayMO1
+322,MO-2,Ann Wagner ,@RepAnnWagner
+323,MO-03,Blaine Luetkemeyer ,@RepBlaine
+324,MO-04,Vicky Hartzler ,@RepHartzler
+325,MO-05,Emanuel Cleaver ,@repcleaver
+326,MO-06,Sam Graves ,@RepSamGraves
+327,MO-07,Billy Long ,@USRepLong
+328,MO-08,Jason Smith ,@RepJasonSmith
+329,MS-01,Trent Kelly ,@RepTrentKelly
+330,MS-02,Bennie G. Thompson ,@BennieGThompson
+331,MS-03,Michael Guest ,@RepMichaelGuest
+332,MS-04,Steven M. Palazzo ,@CongPalazzo
+333,MT - ,Greg Gianforte ,N/A
+334,NC-01,G. K. Butterfield ,@GKButterfield
+335,NC-02,George Holding ,@RepHolding
+336,NC-03,Walter B. Jones ,@RepWalterJones
+337,NC-04,David E. Price ,@RepDavidEPrice
+338,NC-05,Virginia Foxx ,@virginiafoxx
+339,NC-06,Mark Walker ,@RepMarkWalker
+340,NC-07,David Rouzer ,@RepDavidRouzer
+341,NC-08,Richard Hudson ,@RepRichHudson
+342,NC-10,Patrick T. McHenry ,@PatrickMcHenry
+343,NC-11,Mark Meadows ,@RepMarkMeadows
+344,NC-12,Alma S. Adams ,@RepAdams
+345,NC-13,Ted Budd ,@RepTedBudd
+346,ND - ,Kelly Armstrong ,@RepArmstrongND
+347,NE-01,Jeff Fortenberry ,@JeffFortenberry
+348,NE-02,Don Bacon ,@RepDonBacon
+349,NE-03,Adrian Smith ,@RepAdrianSmith
+350,NH-01,Chris Pappas ,@RepChrisPappas
+351,NH-02,Ann M. Kuster ,@RepAnnieKuster
+352,NJ-01,Donald Norcross ,@DonaldNorcross
+353,NJ-02,Jefferson Van Dress ,@CongressmanJVD
+354,NJ-03,Andy Kim ,@RepAndyKimNJ
+355,NJ-04,Christopher H. Smith ,@RepChrisSmith
+356,NJ-05,Josh Gottheimer ,@RepJoshG
+357,NJ-06,Frank Pallone Jr. ,@FrankPallone
+358,NJ-07,Tom Malinowski ,@RepMalinowski
+359,NJ-08,Albio Sires ,@RepSires
+360,NJ-09,Bill Pascrell Jr. ,@BillPascrell
+361,NJ-10,Donald M. Payne Jr. ,@RepDonaldPayne
+362,NJ-11,Mikie Sherrill ,@RepSherrill
+363,NJ-12,Bonnie Watson Coleman ,@RepBonnie
+364,NM-01,Debra Haaland ,@RepDebHaaland
+365,NM-02,Xochitl Torres Small ,@RepTorresSmall
+366,NM-03,Ben Ray Luján ,@repbenraylujan
+367,NV-01,Dina Titus ,@repdinatitus
+368,NV-02,Mark E. Amodei ,@MarkAmodeiNV2
+369,NV-03,Susie Lee ,@RepSusieLee
+370,NV-04,Steven Horsford ,@RepHorsford
+371,NY-01,Lee M. Zeldin ,@RepLeeZeldin
+372,NY-02,Peter T. King ,@RepPeteKing
+373,NY-03,Thomas R.. Suozzi ,@RepTomSuozzi
+374,NY-04,Kathleen M. Rice ,@RepKathleenRice
+375,NY-05,Gregory W. Meeks ,@RepGregoryMeeks
+376,NY-06,Grace Meng ,@RepGraceMeng
+377,NY-07,Nydia M. Velázquez ,@NydiaVelazquez
+378,NY-08,Hakeem S. Jeffries ,@RepJeffries
+379,NY-09,Yvette D. Clarke ,@RepYvetteClarke
+380,NY-10,Jerrold Nadler ,@RepJerryNadler
+381,NY-11,Max Rose ,@RepMaxRose
+382,NY-12,Carolyn B. Maloney ,@RepMaloney
+383,NY-13,Adriano Espaillat ,@RepEspaillat
+384,NY-14,Alexandria Ocasio-Cortez ,@RepAOC
+385,NY-15,José E. Serrano ,@RepJoseSerrano
+386,NY-16,Eliot L. Engel ,@RepEliotEngel
+387,NY-17,Nita M. Lowey ,@NitaLowey
+388,NY-18,Sean Patrick Maloney ,@RepSeanMaloney
+389,NY-19,Antonio Delagado ,@repdelgado
+390,NY-20,Paul Tonko ,@RepPaulTonko
+391,NY-21,Elise M. Stefanik ,@RepStefanik
+392,NY-22,Anthony Brindisi ,@RepBrindisi
+393,NY-23,Tom Reed ,@RepTomReed
+394,NY-24,John Katko ,@RepJohnKatko
+395,NY-25,Joseph Morelle ,@RepJoeMorelle
+396,NY-26,Brian Higgins ,@RepBrianHiggins
+397,NY-27,Chris Collins ,@RepChrisCollins
+398,OH-01,Steve Chabot ,@RepSteveChabot
+399,OH-02,Brad R. Wenstrup ,@RepBradWenstrup
+400,OH-03,Joyce Beatty ,@RepBeatty
+401,OH-04,Jim Jordan ,@Jim_Jordan
+402,OH-05,Robert E. Latta ,@boblatta
+403,OH-06,Bill Johnson ,@RepBillJohnson
+404,OH-07,Bob Gibbs ,@RepBobGibbs
+405,OH-08,Warren Davidson ,@WarrenDavidson
+406,OH-09,Marcy Kaptur ,@RepMarcyKaptur
+407,OH-10,Michael R. Turner ,@RepMikeTurner
+408,OH-11,Marcia L. Fudge ,@RepMarciaFudge
+409,OH-12,Troy Balderson ,@RepBalderson
+410,OH-13,Tim Ryan ,@RepTimRyan
+411,OH-14,David P. Joyce ,@RepDaveJoyce
+412,OH-15,Steve Stivers ,@RepSteveStivers
+413,OH-16,Anthony Gonzalez ,@RepAGonzalez
+414,OK-01,Kevin Hern ,@repkevinhern
+415,OK-02,Markwayne Mullin ,@RepMullin
+416,OK-03,Frank D. Lucas ,@RepFrankLucas
+417,OK-04,Tom Cole ,@TomColeOK04
+418,OK-05,Kendra Horn ,@RepKendraHorn
+419,OR-01,Suzanne Bonamici ,@RepBonamici
+420,OR-02,Greg Walden ,@repgregwalden
+421,OR-03,Earl Blumenauer ,@repblumenauer
+422,OR-04,Peter A. DeFazio ,@RepPeterDeFazio
+423,OR-05,Kurt Schrader ,@RepSchrader
+424,PA-01,Brian Fitzpatrick ,@RepBrianFitz
+425,PA-02,Brendan Boyle ,@CongBoyle
+426,PA-03,Dwight Evans ,@RepDwightEvans
+427,PA-04,Madeleine Dean ,@RepDean
+428,PA-05,Mary Gay Scanlon ,@RepMGS
+429,PA-06,Chrissy Houlahan ,@RepHoulahan
+430,PA-07,Susan Wilk ,@RepSusanWild
+431,PA-08,Matt Cartwright ,@RepCartwright
+432,PA-09,Daniel Meuser ,@RepMeuser
+433,PA-10,Scott Perry ,@RepScottPerry
+434,PA-11,Lloyd Smucker ,@RepSmucker
+435,PA-13,John Joyce ,@RepJohnJoyce
+436,PA-14,Guy Reschenthaler ,@GReschenthaler
+437,PA-15,Glenn Thompson ,@CongressmanGT
+438,PA-16,Mike Kelly ,@MikeKellyPA
+439,PA-17,Conor Lamb ,@RepConorLamb
+440,PA-18,Michael Doyle ,@USRepMikeDoyle
+441,RI-01,David N. Cicilline ,@davidcicilline
+442,RI-02,James R. Langevin ,@JimLangevin
+443,SC-01,Joe Cunningham ,@RepCunningham
+444,SC-02,Joe Wilson ,@RepJoeWilson
+445,SC-03,Jeff Duncan ,@RepJeffDuncan
+446,SC-04,William Timmons ,@reptimmons
+447,SC-05,Ralph Norman ,@RepRalphNorman
+448,SC-06,James E. Clyburn ,@WhipClyburn
+449,SC-07,Tom Rice ,@RepTomRice
+450,SD - ,Dusty Johnson ,@RepDustyJohnson
+451,TN-01,David P. Roe ,@DrPhilRoe
+452,TN-02,Tim Burchett ,@RepTimBurchett
+453,TN-03,"Charles J. ""Chuck"" Fleischmann ",@RepChuck
+454,TN-04,Scott DesJarlais ,@DesJarlaisTN04
+455,TN-05,Jim Cooper ,@repjimcooper
+456,TN-06,John Rose ,@RepJohnRose
+457,TN-07,Mark Green ,@RepMarkGreen
+458,TN-08,David Kustoff ,@RepDavidKustoff
+459,TN-09,Steve Cohen ,@RepCohen
+460,TX-01,Louie Gohmert ,@replouiegohmert
+461,TX-02,Dan Crenshaw ,@RepDanCrenshaw
+462,TX-03,Van Taylor ,@RepVanTaylor
+463,TX-04,John Ratcliffe ,@RepRatcliffe
+464,TX-05,Lance Gooden ,@RepLanceGooden
+465,TX-06,Ron Wright ,@RepRonWright
+466,TX-07,Lizzie Fletcher ,@RepFletcher
+467,TX-08,Kevin Brady ,@RepKevinBrady
+468,TX-09,Al Green ,@RepAlGreen
+469,TX-10,Michael T. McCaul ,@RepMcCaul
+470,TX-11,K. Michael Conaway ,@ConawayTX11
+471,TX-12,Kay Granger ,@RepKayGranger
+472,TX-13,Mac Thornberry ,@MacTXPress
+473,TX-14,Randy K. Weber Sr. ,@TXRandy14
+474,TX-15,Vicente Gonzalez ,@RepGonzalez
+475,TX-16,Veronica Escobar ,@RepEscobar
+476,TX-17,Bill Flores ,@RepBillFlores
+477,TX-18,Sheila Jackson Lee ,@JacksonLeeTX18
+478,TX-19,Jodey C. Arrington ,@RepArrington
+479,TX-20,Joaquin Castro ,@JoaquinCastrotx
+480,TX-21,Chip Roy ,@RepChipRoy
+481,TX-22,Pete Olson ,@RepPeteOlson
+482,TX-23,Will Hurd ,@HurdOnTheHill
+483,TX-24,Kenny Marchant ,@RepKenMarchant
+484,TX-25,Roger Williams ,@RepRWilliams
+485,TX-26,Michael C. Burgess ,@michaelcburgess
+486,TX-27,Michael Cloud ,@RepCloudTX
+487,TX-28,Henry Cuellar ,@RepCuellar
+488,TX-29,Sylvia Garcia ,@RepSylviaGarcia
+489,TX-30,Eddie Bernice Johnson ,@RepEBJ
+490,TX-31,John R. Carter ,@JudgeCarter
+491,TX-32,Colin Allred ,@RepColinAllred
+492,TX-33,Marc A. Veasey ,@RepVeasey
+493,TX-34,Filemon Vela ,@RepFilemonVela
+494,TX-35,Lloyd Doggett ,@RepLloydDoggett
+495,TX-36,Brian Babin ,@RepBrianBabin
+496,UT-01,Rob Bishop ,@RepRobBishop
+497,UT-02,Chris Stewart ,@RepChrisStewart
+498,UT-03,John R. Curtis ,@RepJohnCurtis
+499,UT-04,Ben McAdams ,@RepBenMcAdams
+500,VA-01,Robert J. Wittman ,@RobWittman
+501,VA-02,Elaine Luria ,@RepElaineLuria
+502,VA-03,"Robert C. ""Bobby"" Scott ",@BobbyScott
+503,VA-04,A. Donald McEachin ,@RepMcEachin
+504,VA-05,Denver Riggleman ,@RepRiggleman
+505,VA-06,Ben Cline ,@RepBenCline
+506,VA-07,Abigail Spanberger ,@RepSpanberger
+507,VA-08,Donald S. Beyer Jr. ,@RepDonBeyer
+508,VA-09,H. Morgan Griffith ,@RepMGriffith
+509,VA-10,Jennifer Wexton ,@RepWexton
+510,VA-11,Gerald E. Connolly ,@GerryConnolly
+511,VT - ,Peter Welch ,@PeterWelch
+512,WA-01,Suzan K. DelBene ,@RepDelBene
+513,WA-02,Rick Larsen ,@RepRickLarsen
+514,WA-03,Jaime Herrera Beutler ,@HerreraBeutler
+515,WA-04,Dan Newhouse ,@RepNewhouse
+516,WA-05,Cathy McMorris Rodgers ,@cathymcmorris
+517,WA-06,Derek Kilmer ,@RepDerekKilmer
+518,WA-07,Pramila Jayapal ,@RepJayapal
+519,WA-08,Kim Schrier ,@RepKimSchrier
+520,WA-09,Adam Smith ,@RepAdamSmith
+521,WA-10,Denny Heck ,@RepDennyHeck
+522,WI-01,Bryan Steil ,@RepBryanSteil
+523,WI-02,Mark Pocan ,@repmarkpocan
+524,WI-03,Ron Kind ,@RepRonKind
+525,WI-04,Gwen Moore ,@RepGwenMoore
+526,WI-05,F. James Sensenbrenner Jr. ,@JimPressOffice
+527,WI-06,Glenn Grothman ,@RepGrothman
+528,WI-07,Sean P. Duffy ,@RepSeanDuffy
+529,WI-08,Mike Gallagher ,@RepGallagher
+530,WV-01,David B. McKinley ,@RepMcKinley
+531,WV-02,Alexander X. Mooney ,@RepAlexMooney
+532,WV-03,Carol Miller ,@RepCarolMiller
+533,WY - ,Liz Cheney ,@RepLizCheney
