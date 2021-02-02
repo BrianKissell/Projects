@@ -11,6 +11,7 @@ library(caret)
 library(forcats)
 library(ggpubr)
 library(moments)
+library(outliers)
 theme_set(theme_gdocs())
 
 # Import data
@@ -76,7 +77,7 @@ df_clean <- df_clean %>%
     sexual_orientation_straight = ifelse(dem_orientation == "Heterosexual or straight", 1, 0)
     )
 
-# Normalize variables
+## Normalize variables
 df_clean$perceived_threat_to_identity_total <- scale(df_clean$perceived_threat_to_identity_total)
 df_clean$conspiracy_mentality_total <- scale(df_clean$conspiracy_mentality_total)
 df_clean$conservative_political_beliefs_total <- scale(df_clean$conservative_political_beliefs_total)
@@ -97,13 +98,23 @@ miss_case_summary(df_clean)
 # Check data again
 glimpse(df_clean)
 
-
-
-
-# Prepare data to test assumptions
-raelian_df <- df_clean %>% filter(condition =="Raelian Threat")
-nonreligious_df <- df_clean %>% filter(condition =="Non-religious Threat")
-religious_df <- df_clean %>% filter(condition =="Religious Threat")
+# Outlier Detection
+boxplot(df_clean$perceived_threat_to_identity_total, xlab = "perceived_threat_to_identity_total")
+grubbs.test(df_clean$perceived_threat_to_identity_total)
+boxplot(df_clean$conspiracy_mentality_total, xlab = "conspiracy_mentality_total")
+grubbs.test(df_clean$conspiracy_mentality_total)
+boxplot(df_clean$conservative_political_beliefs_total, xlab = "conservative_political_beliefs_total")
+grubbs.test(df_clean$conservative_political_beliefs_total)
+boxplot(df_clean$need_for_closure_total, xlab = "need_for_closure_total")
+grubbs.test(df_clean$need_for_closure_total)
+boxplot(df_clean$importance_of_identity_total, xlab = "importance_of_identity_total")
+grubbs.test(df_clean$importance_of_identity_total)
+boxplot(df_clean$cognitive_reflection_test_total, xlab = "cognitive_reflection_test_total")
+grubbs.test(df_clean$cognitive_reflection_test_total)
+boxplot(df_clean$ belief_in_fake_news_total, xlab = " belief_in_fake_news_total")
+grubbs.test(df_clean$ belief_in_fake_news_total)
+boxplot(df_clean$belief_in_real_news_total, xlab = "belief_in_real_news_total")
+grubbs.test(df_clean$belief_in_real_news_total)
 
 ############################# Perceived Threat to Identity ###########################################
 ## Check assumptions for perceived threat to identity
@@ -130,19 +141,22 @@ ggplot(df_clean, aes(x = condition, y = perceived_threat_to_identity_total, fill
   scale_fill_manual(values=c("purple", "green", "yellow"))+
   labs(title = "Threat and Perceived Threat to Identity", y = "Perceived Threat to Identity", x = "Threat Condition", fill = "Threat Condition")
 
+df_clean %>% rstatix::welch_anova_test(perceived_threat_to_identity_total ~ condition)
+
 ############################# Importance of Identity ###########################################
 ## Check assumptions for perceived threat to identity
 # Visually inspect distributions
 df_clean %>%
-  ggplot(aes(importance_of_identity_total, color = condition)) +
-  geom_histogram() +
-  facet_wrap(~condition) +
+  ggplot(aes(importance_of_identity_total)) +
+  geom_density() +
+  stat_overlay_normal_density(color = "red", linetype = "dashed") +
   labs(x = "Importance of Identity")
 
 # Check for normality
-shapiro.test(raelian_df$importance_of_identity_total)
-shapiro.test(nonreligious_df$importance_of_identity_total)
-shapiro.test(religious_df$importance_of_identity_total)
+shapiro.test(df_clean$importance_of_identity_total)
+
+#Check for skewness
+skewness(df_clean$importance_of_identity_total)
 
 # Check for equal variances.
 bartlett.test(df_clean$importance_of_identity_total ~ df_clean$condition)
@@ -154,19 +168,19 @@ ggplot(df_clean, aes(x = condition, y = importance_of_identity_total, fill = con
   scale_fill_manual(values=c("purple", "green", "yellow"))+
   labs(title = "Threat and Importance of Identity", y = "Importance of Identity", x = "Threat Condition", fill = "Threat Condition")
 
+df_clean %>% rstatix::welch_anova_test(importance_of_identity_total ~ condition)
+
 ############################# conspiracy_mentality_total ###########################################
 ## Check assumptions for conspiracy_mentality_total
 # Visually inspect distributions
 df_clean %>%
-  ggplot(aes(conspiracy_mentality_total, color = condition)) +
-  geom_histogram() +
-  facet_wrap(~condition) +
+  ggplot(aes(conspiracy_mentality_total)) +
+  geom_density() +
+  stat_overlay_normal_density(color = "red", linetype = "dashed") +
   labs(x = "conspiracy_mentality_total")
 
 # Check for normality
-shapiro.test(raelian_df$conspiracy_mentality_total)
-shapiro.test(nonreligious_df$conspiracy_mentality_total)
-shapiro.test(religious_df$conspiracy_mentality_total)
+shapiro.test(df_clean$conspiracy_mentality_total)
 
 # Check for equal variances.
 bartlett.test(df_clean$conspiracy_mentality_total ~ df_clean$condition)
@@ -178,19 +192,19 @@ ggplot(df_clean, aes(x = condition, y = conspiracy_mentality_total, fill = condi
   scale_fill_manual(values=c("purple", "green", "yellow"))+
   labs(title = "Threat and conspiracy_mentality_total", y = "conspiracy_mentality_total", x = "Threat Condition", fill = "Threat Condition")
 
+df_clean %>% rstatix::welch_anova_test(conspiracy_mentality_total ~ condition)
+
 ############################# conservative_political_beliefs_total ###########################################
 ## Check assumptions for conservative_political_beliefs_total
 # Visually inspect distributions
 df_clean %>%
-  ggplot(aes(conservative_political_beliefs_total, color = condition)) +
-  geom_histogram() +
-  facet_wrap(~condition) +
+  ggplot(aes(conservative_political_beliefs_total)) +
+  geom_density()+
+  stat_overlay_normal_density(color = "red", linetype = "dashed")
   labs(x = "conservative_political_beliefs_total")
 
 # Check for normality
-shapiro.test(raelian_df$conservative_political_beliefs_total)
-shapiro.test(nonreligious_df$conservative_political_beliefs_total)
-shapiro.test(religious_df$conservative_political_beliefs_total)
+shapiro.test(df_clean$conservative_political_beliefs_total)
 
 # Check for equal variances.
 bartlett.test(df_clean$conservative_political_beliefs_total ~ df_clean$condition)
@@ -202,19 +216,19 @@ ggplot(df_clean, aes(x = condition, y = conservative_political_beliefs_total, fi
   scale_fill_manual(values=c("purple", "green", "yellow"))+
   labs(title = "Threat and conservative_political_beliefs_total", y = "conservative_political_beliefs_total", x = "Threat Condition", fill = "Threat Condition")
 
+df_clean %>% rstatix::welch_anova_test(conservative_political_beliefs_total ~ condition)
+
 ############################# need_for_closure_total ###########################################
 ## Check assumptions for need_for_closure_total
 # Visually inspect distributions
 df_clean %>%
-  ggplot(aes(need_for_closure_total, color = condition)) +
-  geom_histogram() +
-  facet_wrap(~condition) +
+  ggplot(aes(need_for_closure_total)) +
+  geom_density() +
+  stat_overlay_normal_density(color = "red", linetype = "dashed") +
   labs(x = "need_for_closure_total")
 
 # Check for normality
-shapiro.test(raelian_df$need_for_closure_total)
-shapiro.test(nonreligious_df$need_for_closure_total)
-shapiro.test(religious_df$need_for_closure_total)
+shapiro.test(df_clean$need_for_closure_total)
 
 # Check for equal variances.
 bartlett.test(df_clean$need_for_closure_total ~ df_clean$condition)
@@ -226,19 +240,19 @@ ggplot(df_clean, aes(x = condition, y = need_for_closure_total, fill = condition
   scale_fill_manual(values=c("purple", "green", "yellow"))+
   labs(title = "Threat and need_for_closure_total", y = "need_for_closure_total", x = "Threat Condition", fill = "Threat Condition")
 
+df_clean %>% rstatix::welch_anova_test(need_for_closure_total ~ condition)
+
 ############################# cognitive_reflection_test_total ###########################################
 ## Check assumptions for cognitive_reflection_test_total
 # Visually inspect distributions
 df_clean %>%
-  ggplot(aes(cognitive_reflection_test_total, color = condition)) +
-  geom_histogram() +
-  facet_wrap(~condition) +
+  ggplot(aes(cognitive_reflection_test_total)) +
+  geom_density() +
+  stat_overlay_normal_density(color = "red", linetype = "dashed") +
   labs(x = "cognitive_reflection_test_total")
 
 # Check for normality
-shapiro.test(raelian_df$cognitive_reflection_test_total)
-shapiro.test(nonreligious_df$cognitive_reflection_test_total)
-shapiro.test(religious_df$cognitive_reflection_test_total)
+shapiro.test(df_clean$cognitive_reflection_test_total)
 
 # Check for equal variances.
 bartlett.test(df_clean$cognitive_reflection_test_total ~ df_clean$condition)
@@ -250,19 +264,19 @@ ggplot(df_clean, aes(x = condition, y = cognitive_reflection_test_total, fill = 
   scale_fill_manual(values=c("purple", "green", "yellow"))+
   labs(title = "Threat and cognitive_reflection_test_total", y = "cognitive_reflection_test_total", x = "Threat Condition", fill = "Threat Condition")
 
+df_clean %>% rstatix::welch_anova_test(cognitive_reflection_test_total ~ condition)
+
 ############################# belief_in_fake_news_total ###########################################
 ## Check assumptions for belief_in_fake_news_total
 # Visually inspect distributions
 df_clean %>%
-  ggplot(aes(belief_in_fake_news_total, color = condition)) +
-  geom_histogram() +
-  facet_wrap(~condition) +
+  ggplot(aes(belief_in_fake_news_total)) +
+  geom_density() +
+  stat_overlay_normal_density(color = "red", linetype = "dashed") +
   labs(x = "belief_in_fake_news_total")
 
 # Check for normality
-shapiro.test(raelian_df$belief_in_fake_news_total)
-shapiro.test(nonreligious_df$belief_in_fake_news_total)
-shapiro.test(religious_df$belief_in_fake_news_total)
+shapiro.test(df_clean$belief_in_fake_news_total)
 
 # Check for equal variances.
 bartlett.test(df_clean$belief_in_fake_news_total ~ df_clean$condition)
@@ -274,19 +288,19 @@ ggplot(df_clean, aes(x = condition, y = belief_in_fake_news_total, fill = condit
   scale_fill_manual(values=c("purple", "green", "yellow"))+
   labs(title = "belief_in_fake_news_total", y = "belief_in_fake_news_total", x = "Threat Condition", fill = "Threat Condition")
 
+df_clean %>% rstatix::welch_anova_test(belief_in_fake_news_total ~ condition)
+
 ############################# belief_in_real_news_total ###########################################
 ## Check assumptions for belief_in_real_news_total
 # Visually inspect distributions
 df_clean %>%
-  ggplot(aes(belief_in_real_news_total, color = condition)) +
-  geom_histogram() +
-  facet_wrap(~condition) +
+  ggplot(aes(belief_in_real_news_total)) +
+  geom_density() +
+  stat_overlay_normal_density(color = "red", linetype = "dashed") +
   labs(x = "belief_in_real_news_total")
 
 # Check for normality
-shapiro.test(raelian_df$belief_in_real_news_total)
-shapiro.test(nonreligious_df$belief_in_real_news_total)
-shapiro.test(religious_df$belief_in_real_news_total)
+shapiro.test(df_clean$belief_in_real_news_total)
 
 # Check for equal variances.
 bartlett.test(df_clean$belief_in_real_news_total ~ df_clean$condition)
@@ -298,9 +312,10 @@ ggplot(df_clean, aes(x = condition, y = belief_in_real_news_total, fill = condit
   scale_fill_manual(values=c("purple", "green", "yellow"))+
   labs(title = "belief_in_real_news_total", y = "belief_in_real_news_total", x = "Threat Condition", fill = "Threat Condition")
 
+df_clean %>% rstatix::welch_anova_test(belief_in_real_news_total ~ condition)
 
+##############################################################################
 
-
-df_vars <- df_clean %>% select(non_religious_threat, raelian_threat, religious_threat, student, income_less_than_39999, income_between_40000_and_79999, income_more_than_90000, no_bachelor_degree, christian, atheist, other_religion, religious, democrat, republican, other_political_party, ethnicity_white, single_never_married, sexual_orientation_straight,perceived_threat_to_identity_total, conspiracy_mentality_total, conservative_political_beliefs_total, need_for_closure_total, importance_of_identity_total, cognitive_reflection_test_total, belief_in_fake_news_total, belief_in_real_news_total)
+df_vars <- df_clean %>% select(religious_threat, non_religious_threat, raelian_threat, student, income_less_than_39999, income_between_40000_and_79999, income_more_than_90000, no_bachelor_degree, christian, atheist, religious, democrat, republican, ethnicity_white, single_never_married, sexual_orientation_straight,perceived_threat_to_identity_total, conspiracy_mentality_total, conservative_political_beliefs_total, need_for_closure_total, importance_of_identity_total, cognitive_reflection_test_total, belief_in_fake_news_total, belief_in_real_news_total)
 
 summary(lm(perceived_threat_to_identity_total ~ ., df_vars))
