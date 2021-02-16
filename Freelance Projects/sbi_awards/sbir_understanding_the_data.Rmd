@@ -2,18 +2,15 @@
 title: 'SBIR: Understanding the Data'
 author: "Brian Kissell"
 date: "Last edited `r format(Sys.time(), '%B %d, %Y')`"
-output: pdf_document
+output: html_document
 editor_options: 
   markdown: 
     wrap: 72
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, fig.width = 8, fig.align = 'center')
+knitr::opts_chunk$set(echo = FALSE, fig.width = 12, fig.align = 'center')
 ```
-
-**Please note that this code is not yet complete, and will need to be updated.**
-
 ```{r set-up, include = FALSE}
 # Import packages
 library(tidyverse)
@@ -21,6 +18,10 @@ library(stringr)
 library(tidyr)
 library(ggthemes)
 library(lubridate)
+library(tidytext)
+library(naniar)
+library(outliers)
+library(plotly)
 
 # Set theme
 theme_set(theme_gdocs())
@@ -29,386 +30,814 @@ theme_set(theme_gdocs())
 #sbir_awards <-  read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vT9GNc53YRAx94sOhsD8mMwFi0iwL1Zb5TI8PQ8HIh9QC-yWDSr1SnX-miomoSfe3O4R5u_2OIhByUd/pub?output=csv") %>% drop_na(amount)
 
 # Read locally so it is faster
-sbir_awards <- read_csv("scraped_data_21210.csv") %>% drop_na(amount)
+sbir_awards <- read_csv("scraped_data.csv") %>% drop_na(amount)
 
-# Calculate the percentage of awards that are from the Department of Defense
-percentage_from_department_of_defense <- round((sbir_awards %>% filter(agency == "Department of Defense") %>% summarize(n()) %>% pull()) / nrow(sbir_awards), 2) * 100
+############## Functions #######################
 
-# I shortened the names to make it easier to visualize
-sbir_awards$branch <- factor(sbir_awards$branch, levels = c("Air Force", "Army", "Defense Advanced Research Projects Agency", "Defense Health Program", "Defense Logistics Agency", "Defense Microelectronics Activity", "Defense Threat Reduction Agency", "Missile Defense Agency", "National Geospatial-Intelligence Agency", "Navy", "Office for Chemical and Biological Defense", "Special Operations Command"), labels = c("Air Force", "Army", "DARPA", "DHP", "DLA", "DMA", "DTRA", "MDA", "NGIA", "Navy", "OCBD", "SOC"))
+# Create function that provides summary statistics for numeric variable
+descriptives_numeric <- function(data, var){
+  descriptives <- data %>% 
+    summarize(n = n(), 
+              mean = round(mean(.data[[var]]), 2), 
+              sd = round(sd(.data[[var]]), 2), 
+              min = min(.data[[var]]), 
+              median = round(median(.data[[var]]), 2), 
+              max = max(.data[[var]]),
+              .groups = 'drop') 
+    knitr::kable(tibble(descriptives), 
+                 align = 'c', 
+                 caption = paste("Descriptive Statistics for", 
+                                 str_replace(var, pattern = "_", " ") %>% str_to_title()))
+}
 
-# Convert amount to a numeric variable
-sbir_awards$amount <- str_remove_all(sbir_awards$amount,"\\$") %>% str_remove_all("\\,") %>% as.numeric()
+###################################
 
-# How many award are in each phase?
-awards_for_phase1 <- sbir_awards %>% filter(phase == "Phase I") %>% summarize(n()) %>% pull()
-awards_for_phase2 <- sbir_awards %>% filter(phase == "Phase II") %>% summarize(n()) %>% pull()
+# Create function that provides descriptives for categorical variable
+descriptives_categorical <- function(data, var){
+  descriptives <- data %>% 
+    group_by(.data[[var]]) %>%
+    summarize(n = n(),
+              .groups = 'drop') %>%
+    mutate('%' = round(((n / sum(n))*100),2))
+  knitr::kable(tibble(descriptives), 
+               align = 'c', 
+               caption = paste("Descriptive Statistics for", 
+                               str_replace(var, pattern = "_", " ") %>% str_to_title()))
+}
 
-# Since this is a factor of interest, I will convert it into a factor
-sbir_awards$phase <- factor(sbir_awards$phase)
+###############################
 
-# How many awards per program?
-awards_for_program_sbir <- sbir_awards %>% filter(program == "SBIR") %>% summarize(n()) %>% pull()
-awards_for_program_sttr <- sbir_awards %>% filter(program == "STTR") %>% summarize(n()) %>% pull()
+# Create function that provides summary statistics for numeric variable grouped by a categorical variable
+descriptives_numeric_grouped <- function(data, var, grouping){
+  descriptives <- data %>% 
+    group_by(.data[[grouping]]) %>%
+    summarize(n = n(),
+              mean = round(mean(.data[[var]]), 2),
+              sd = round(sd(.data[[var]]), 2),
+              min = min(.data[[var]]),
+              median = round(median(.data[[var]]), 2),
+              max = max(.data[[var]]),
+              .groups = 'drop') 
+  knitr::kable(tibble(descriptives), 
+               align = 'c', 
+               caption = paste("Descriptive Statistics for", 
+                               str_replace(var, pattern = "_", " ") %>% str_to_title(),
+                               "and", 
+                               str_replace(grouping, pattern = "_", " ") %>% str_to_title()))
+}
 
-# I am not sure whether this is of interest, but I will still convert it into a factor
-sbir_awards$program <- factor(sbir_awards$program)
+#############################
 
-# Convert award year into a date
-sbir_awards$award_year <- ymd(sbir_awards$award_year, truncated = 2L)
+# Create function that provides summary statistics for numeric variable grouped by a categorical variable
+descriptives_numeric_groups <- function(data, var, group1, group2){
+  descriptives <- data %>% 
+    group_by(.data[[group1]], .data[[group2]]) %>%
+    summarize(n = n(),
+              mean = round(mean(.data[[var]]), 2),
+              sd = round(sd(.data[[var]]), 2),
+              min = min(.data[[var]]),
+              median = round(median(.data[[var]]), 2),
+              max = max(.data[[var]]),
+              .groups = 'drop') 
+  knitr::kable(tibble(descriptives), 
+               align = 'c', 
+               caption = paste("Descriptive Statistics for ", 
+                               str_replace(var, pattern = "_", " ") %>% str_to_title(),
+                               ", ", 
+                               str_replace(group1, pattern = "_", " ") %>% str_to_title(),
+                               ", and ",
+                               str_replace(group2, pattern = "_", " ") %>% str_to_title(), sep = ""))
+}
 
-# Convert award start date to date
-sbir_awards$award_start_date_proposal_award_date <- ymd(sbir_awards$award_start_date_proposal_award_date)
+##########################
 
-# Convert award end date to date
-sbir_awards$award_end_date_contract_end_date  <- ymd(sbir_awards$award_end_date_contract_end_date) 
+# Create bar plot
+my_bar <- function(my_data, my_x, my_color) {
+  
+  # Create some labels to be used in the graph
+  name_of_x <- str_replace_all(my_x, pattern = "_", " ") %>% str_to_title()
+  mytitle <- paste("Bar Plot: Number of Observations by", name_of_x)
+  
+  # Create the bar plot
+  my_data %>% 
+    ggplot(aes(x = factor(.data[[my_x]]), fill = factor(.data[[my_x]]))) + 
+    geom_bar() + 
+    coord_flip() +
+    scale_fill_manual(values = my_color) +
+    labs(title = mytitle, x = name_of_x, y = "Count", fill = name_of_x) +
+    theme(legend.position = "") 
+}
+##########################################################
+# Create bar plot
+my_bar_facet <- function(my_data, my_x, my_color, my_facet) {
+  
+  # Create some labels to be used in the graph
+  name_of_x <- str_replace_all(my_x, pattern = "_", " ") %>% str_to_title()
+  name_of_facet <- str_replace_all(my_facet, pattern = "_", " ") %>% str_to_title()
+  mytitle <- paste("Bar Plot: Number of Observations by", name_of_x, "and", name_of_facet)
+  
+  # Create the bar plot
+  my_data %>% 
+    ggplot(aes(x = factor(.data[[my_x]]), fill = factor(.data[[my_x]]))) + 
+    geom_bar() + 
+    coord_flip() +
+    scale_fill_manual(values = my_color) +
+    labs(title = mytitle, x = name_of_x, y = "Count") +
+    facet_wrap(~.data[[my_facet]])+
+    theme(legend.position = "") 
+}
 
-# Create variable has shows the difference between the start and end dates
-sbir_awards$days_between_start_and_finish <- sbir_awards$award_end_date_contract_end_date - sbir_awards$award_start_date_proposal_award_date
+#############################################
 
-# How many were hubzone owned?
-awards_for_hubzone_owned <- sbir_awards %>% filter(hubzone_owned == "Y") %>% summarize(n()) %>% pull()
+# Create histogram
+my_hist <- function(my_data, my_x) {
+  # Create some labels to be used in the graph
+  name_of_x <- str_replace_all(my_x, pattern = "_", " ") %>% str_to_title()
+  mytitle <- paste("Histogram: Number of Observations by", name_of_x)
+  
+  # Create the bar plot
+  ggplot(data = my_data, aes(x = as.numeric(.data[[my_x]]))) + 
+    geom_histogram(bins = 20) + 
+    labs(title = mytitle, x = name_of_x, y = "Number of Awards")
+}
 
-# How many were not hubzone owned?
-awards_for_not_hubzone_owned <- sbir_awards %>% filter(hubzone_owned == "N") %>% summarize(n()) %>% pull()
+################################################
 
-# Convert hubzone_owned to factor
-sbir_awards$hubzone_owned <- factor(sbir_awards$hubzone_owned)
+# Create boxplot
+my_box <- function(my_data, my_x) {
+  # Create some labels to be used in the graph
+  name_of_x <- str_replace_all(my_x, pattern = "_", " ") %>% str_to_title()
+  mytitle <- paste("Box Plot: Number of Observations by", name_of_x)
+  
+  # Create the bar plot
+  ggplot(data = my_data, aes(x = as.numeric(.data[[my_x]]))) + 
+    geom_boxplot() + 
+    labs(title = mytitle, x = name_of_x, y = "Number of Awards")
+}
 
-# How many were woman owned?
-awards_for_woman_owned <- sbir_awards %>% filter(woman_owned == "Y") %>% summarize(n()) %>% pull()
+################################################
 
-# How many were not woman owned?
-awards_for_not_woman_owned <- sbir_awards %>% filter(woman_owned == "N") %>% summarize(n()) %>% pull()
+# Create Function for density plots
+my_density_fill <- function(my_data, my_x, my_fill, my_color) {
+  # Create some labels to be used in the graph
+  name_of_x <- str_replace_all(my_x, pattern = "_", " ") %>% str_to_title()
+  name_of_fill <- str_replace_all(my_fill, pattern = "_", " ") %>% str_to_title()
+  mytitle <- paste("Density Plot: Distribution by", name_of_x, "and", name_of_fill)
+  
+  # Create the bar plot
+  ggplot(data = my_data, aes(x = as.numeric(.data[[my_x]])), fill = as.factor(.data[[my_fill]])) + 
+    geom_density(alpha = .65, aes(fill= as.factor(.data[[my_fill]]))) + 
+    scale_fill_manual(values = my_color) +
+    labs(title = mytitle, x = name_of_x, y = "Number of Awards", fill = name_of_fill)
+}
 
-# Convert woman_owned to factor
-sbir_awards$woman_owned <- factor(sbir_awards$woman_owned)
+#################################################
 
-# How many were socially and economically disadvantaged?
-awards_for_socially_and_economically_disadvantaged <- sbir_awards %>% filter(socially_and_economically_disadvantaged == "Y") %>% summarize(n()) %>% pull()
+# Create filled histogram
+my_hist_filled <- function(my_data, my_x, my_fill, my_color){
+  name_of_x <- str_replace_all(my_x, pattern = "_", " ") %>% str_to_title()
+  name_of_fill <- str_replace_all(my_fill, pattern = "_", " ") %>% str_to_title()
+  mytitle <- paste("Histogram: Number of Observations by", name_of_x, "and", name_of_fill )
+  
+  ggplot(sbir_awards, aes(x = .data[[my_x]], fill = .data[[my_fill]])) +
+    geom_histogram(position = "dodge", bins = 20) + 
+    scale_fill_manual(values = my_color) +
+    labs(title = mytitle, x = name_of_x, y = "Count", fill = name_of_fill)
+}
 
-# How many were not socially and economically disadvantaged?
-awards_for_not_socially_and_economically_disadvantaged <- sbir_awards %>% filter(socially_and_economically_disadvantaged == "N") %>% summarize(n()) %>% pull()
+#####################################################
 
-# Convert socially_and_economically_disadvantaged to factor
-sbir_awards$socially_and_economically_disadvantaged <- factor(sbir_awards$socially_and_economically_disadvantaged)
+# Create filled boxplot
+my_box_filled <- function(my_data, my_x, my_fill, my_color){
+  name_of_x <- str_replace_all(my_x, pattern = "_", " ") %>% str_to_title()
+  name_of_fill <- str_replace_all(my_fill, pattern = "_", " ") %>% str_to_title()
+  mytitle <- paste("Boxplot: Number of Observations by", name_of_x, "and", name_of_fill )
+  
+  ggplot(sbir_awards, aes(x = .data[[my_fill]], y = .data[[my_x]], fill = .data[[my_fill]])) +
+    geom_boxplot(position = position_dodge(1)) + 
+    scale_fill_manual(values = my_color) +
+    labs(title = mytitle, x = name_of_fill, y = name_of_x, fill = name_of_fill)
+}
 
-# Running this here, and will place it in correct place later.
-award_links <- read_csv("award_links.csv")
-
-# Prepare more detailed phase variable
-df_full <- left_join(sbir_awards, award_links, by = c("link" = "award_links_full")) 
-df_full <- df_full %>%
-  mutate(only_phase1 = ifelse(duplicated(df_full$award_names), 0, 1),
-         phase1_with_phase2 = ifelse(duplicated(df_full$award_names) & phase == "Phase I", 1, 0))
-df_full <- df_full %>%
-  mutate(phase_more = ifelse(only_phase1 == 1, "Phase I - No Phase II", ifelse(phase1_with_phase2 == 1, "Phase I - Obtained Phase II", "Phase II")))
-
-# Add new phase variable to sbir_awards dataframe
-sbir_awards$phase_more <- factor(df_full$phase_more)
-
-
+my_smooth_filled <- function(my_data, my_x, my_y, my_fill, my_color){
+  name_of_x <- str_replace_all(my_x, pattern = "_", " ") %>% str_to_title()
+  name_of_y <- str_replace_all(my_y, pattern = "_", " ") %>% str_to_title()
+  name_of_fill <- str_replace_all(my_fill, pattern = "_", " ") %>% str_to_title()
+  mytitle <- paste("Smooth Plot:", name_of_y, "by", name_of_x, "and", name_of_fill )
+  
+  ggplot(my_data, aes(x = .data[[my_x]], y = .data[[my_y]], color = .data[[my_fill]])) +
+  geom_smooth(aes(color = .data[[my_fill]])) + 
+  scale_color_manual(values = my_color) +
+  labs(title = mytitle, x = name_of_x, y = name_of_y, color = name_of_fill) +
+  theme(legend.position = "") 
+}
 ```
 
 # SBIR Award Data Set
 
-## Summary for each variable
-
 The `sbir_awards` data set includes `r nrow(sbir_awards)` awards that
-were scraped from sbir.gov, and the data set includes information for
-`r ncol(sbir_awards)` variables related to each award.
+were scraped from sbir.gov. The data set includes information for
+`r ncol(sbir_awards)` variables related to each award. Below, you can see information on each included variable. Please note that the data will be cleaned and processed throughout this document, and will then exported as a new csv.
 
 ```{r sbir_awards}
 # Look over dataframe
 glimpse(sbir_awards)
 ```
 
-`r percentage_from_department_of_defense`% of the included awards are from the Department of Defense.
+## Missing Data
 
-```{r branches, fig.cap = "Figure 1.1: The Number of Awards Rewarded to Each Branch"}
-# Visualize awards per branch
-fig_1_1 <- ggplot(sbir_awards, aes(x = branch)) + 
-  geom_bar()+ 
-  coord_flip() +
-  labs(title = "Number of Awards per Branch", x = "Branch Name", y = "Number of Awards")
+Before beginning the analysis, I checked to evaluate whether there was missing data in the data set -- a visualization of the missing data can be seen below. While a large amount of data is missing, most of it falls in four variables (i.e., `solicitation_number`, `solicitation_year`, `award_start_date_proposal_award_date`, and `award_end_date_contract_end_date`). Due to the fact that the website did not contain a large portion of that data, I will not discuss those variables any further in the report.
 
-fig_1_1
+```{r, include = FALSE}
+# Are there any missing values
+any_na(sbir_awards)
+
+# How many values are missing?
+n_miss(sbir_awards)
+
+# What proportion is missing?
+prop_miss(sbir_awards)
+
+# What variables are missing data?
+miss_var_summary(sbir_awards)
+
+# What cases were missing data?
+miss_case_summary(sbir_awards)
 ```
 
-```{r award_amount-hist, fig.cap = "Figure 1.2: Visualizations of the Distibution of Award Amounts Rewarded"}
-# Create histogram with awards
-fig_1_2a <- ggplot(sbir_awards, aes(x = amount)) + 
-  geom_histogram(bins = 20)+ 
-  labs(title = "Distibution of Award Amounts", x = "Amount of Award", y = "Number of Awards")
+### Visualization of Missing Data
 
-fig_1_2a
-
-# Create boxplot with awards
-fig_1_2b <- ggplot(sbir_awards, aes(x = amount)) + 
-  geom_boxplot()+ 
-  labs(title = "Distibution of Award Amounts", x = "Amount of Award", y = "Number of Awards")
-
-fig_1_2b
+```{r, fig.height = 8}
+# Create visualization of missing data.
+vis_miss(sbir_awards, warn_large_data = FALSE)
 ```
 
+# Variable Summaries for Categorical Variables
 
-`r round(awards_for_phase1/nrow(sbir_awards), 4) * 100`% of the awards were from phase I, while `r round(awards_for_phase2/nrow(sbir_awards), 4) * 100`% were from phase II.
+```{r}
+# I shortened the names to make it easier to visualize
+sbir_awards$branch <- factor(sbir_awards$branch, levels = c("Air Force", "Army", "Defense Advanced Research Projects Agency", "Defense Health Program", "Defense Logistics Agency", "Defense Microelectronics Activity", "Defense Threat Reduction Agency", "Missile Defense Agency", "National Geospatial-Intelligence Agency", "Navy", "Office for Chemical and Biological Defense", "Special Operations Command"), labels = c("Air Force", "Army", "DARPA", "DHP", "DLA", "DMA", "DTRA", "MDA", "NGIA", "Navy", "OCBD", "SOC"))
+```
+```{r, include = FALSE}
+# Read in the links for each award.
+award_links <- read_csv("award_links.csv")
 
+# Join this data with the sbir_awards data
+df_full <- left_join(sbir_awards, award_links, by = c("link" = "award_links_full")) 
 
-```{r phase_amount, fig.cap = "Figure 1.3: Visualizations of phase and number of awards"}
+# Create a new variable for the phases, which specifies whether phase I led to phase II
+df_full <- df_full %>%
+  mutate(only_phase1 = ifelse(duplicated(df_full$award_names), 0, 1),
+         phase1_with_phase2 = ifelse(duplicated(df_full$award_names) & phase == "Phase I", 1, 0))
+df_full <- df_full %>%
+  mutate(phases = ifelse(phase == 'Phase II', "Phase II", ifelse(only_phase1 == 1, "Phase I - No Phase II", ifelse(phase1_with_phase2 == 1, "Phase I - Obtained Phase II", NA))))
 
-# Visualize awards per phase
-fig_1_3a <- ggplot(sbir_awards, aes(x = phase)) + 
-  geom_bar()+ 
-  coord_flip() +
-  labs(title = "Number of Awards per Phase", x = "Phase", y = "Number of Awards")
+# Add new phase variable to sbir_awards dataframe
+sbir_awards$phases <- factor(df_full$phases)
 
-fig_1_3a
+# Also add names of the awards to the data set.
+sbir_awards$award_names <- df_full$award_names
+```
+```{r, include = FALSE}
+sbir_awards_unavailable <- sum(sbir_awards$hubzone_owned == "Unavailable")
 
+# Remove the Unavailable data from the data set
+sbir_awards <- sbir_awards[-which(sbir_awards$hubzone_owned == "Unavailable"),]
+```
+
+`r round((sum(sbir_awards$agency == "Department of Defense")/nrow(sbir_awards)) * 100, 2)`% of the included awards are from the Department of Defense, which was by design. A majority of the awards came from five branches. These were the Air Force (`r round((sum(sbir_awards$branch == "Air Force")/nrow(sbir_awards)) * 100, 2)`%), the Navy (`r round((sum(sbir_awards$branch == "Navy")/nrow(sbir_awards)) * 100, 2)`%), the Army (`r round((sum(sbir_awards$branch == "Army")/nrow(sbir_awards)) * 100, 2)`%), the Missile Defense Agency (`r round((sum(sbir_awards$branch == "Missile Defense Agency")/nrow(sbir_awards)) * 100, 2)`%), and the Defense Advanced Research Projects Agency (`r round((sum(sbir_awards$branch == "Defense Advanced Research Projects Agency")/nrow(sbir_awards)) * 100, 2)`%). `r round((sum(sbir_awards$phase == "Phase I")/nrow(sbir_awards)) * 100, 2)`% of include awards were in Phase I, while `r round((sum(sbir_awards$phase == "Phase II")/nrow(sbir_awards)) * 100, 2)`% were in phase II. However, to allow us to distinguish between awards that only reached Phase I and those that reached Phase II, I created a new variable, `phases`. Using this variable, we can see that `r round((sum(sbir_awards$phases == "Phase I - Obtained Phase II")/nrow(sbir_awards)) * 100, 2)`% of Phase I awards were in the group that reached phase II. In other words, there was a success rate of `r round((sum(sbir_awards$phases == "Phase I - Obtained Phase II") / (sum(sbir_awards$phases == "Phase I - No Phase II") + sum(sbir_awards$phases == "Phase I - Obtained Phase II"))) * 100, 2)`% for reaching Phase II.  `r round((sum(sbir_awards$program == "STTR")/nrow(sbir_awards)) * 100, 2)`% of the awards were from the STTR program, while `r round((sum(sbir_awards$program == "SBIR")/nrow(sbir_awards)) * 100, 2)`% were from the SBIR program. `r sbir_awards_unavailable` from `hubzone_owned`, `woman_owned`, and `socially_and_economically_disadvantaged` were unavailable. To again improve the visualizations, these have been removed. `r round((sum(sbir_awards$hubzone_owned == "Y")/nrow(sbir_awards)) * 100, 2)`% of the awards were from hubzone_owned, while `r round((sum(sbir_awards$hubzone_owned == "N")/nrow(sbir_awards)) * 100, 2)`% were not from hubzone_owned. `r round((sum(sbir_awards$woman_owned == "Y")/nrow(sbir_awards)) * 100, 2)`% of the awards were from women owned businesses, while `r round((sum(sbir_awards$woman_owned == "N")/nrow(sbir_awards)) * 100, 2)`% were not women owned businesses. 
+
+```{r}
+# The Number of Awards Rewarded to Each Branch
+fig_1_1a <- my_bar(my_data = sbir_awards, my_x = "branch", my_color = c("gray20", "gray25", "gray30", "gray35", "gray40", "gray45", "gray50", "gray55", "gray60", "gray65", "gray70", "gray75", "gray80", "gray85"))
+
+ggplotly(fig_1_1a)
+```
+
+```{r}
+# Visualizations of phase and number of awards
+fig_1_2a <- my_bar(my_data = sbir_awards, my_x = "phase", my_color = c("gray20", "gray80"))
+
+ggplotly(fig_1_2a)
+```
+
+```{r}
 # Visualize awards per new phase variable
-fig_1_3b <- ggplot(sbir_awards, aes(x = phase_more)) + 
-  geom_bar()+ 
-  coord_flip() +
-  labs(title = "Number of Awards per Phase Information", x = "Phase Information", y = "Number of Awards")
+fig_1_2b <- my_bar(my_data = sbir_awards, my_x = "phases", my_color = c("light blue", "blue", "red"))
 
-fig_1_3b
+ggplotly(fig_1_2b)
+```
+
+```{r}
+# Visualizations of the Number of Awards per Program 
+fig_1_3a <- my_bar(my_data = sbir_awards, my_x = "program", my_color = c("green", "green4")) 
+
+ggplotly(fig_1_3a)
+```
+
+```{r}
+# Visualizations of the Number of HubZone Ownership
+fig_1_4a <- my_bar(my_data = sbir_awards, my_x = "hubzone_owned", my_color = c("deeppink", "deeppink4")) 
+
+ggplotly(fig_1_4a)
+```
+
+```{r}
+# Visualizations of the number of Awards by Women Owned Businesses"
+fig_1_5a <- my_bar(my_data = sbir_awards, my_x = "woman_owned", my_color = c("gold", "gold4")) 
+
+ggplotly(fig_1_5a)
+```
+
+```{r}
+# Visualizations of the Number of Awards for those who are socially and economically disadvantaged
+fig_1_6a <- my_bar(my_data = sbir_awards, my_x = "socially_and_economically_disadvantaged", my_color = c("cyan", "cyan4")) 
+
+ggplotly(fig_1_6a)
+```
+
+# Exploration of Award Amount
+
+```{r}
+# Convert amount to a numeric variable
+sbir_awards$amount <- str_remove_all(sbir_awards$amount,"\\$") %>% str_remove_all("\\,") %>% as.numeric()
+
+data_with_outliers <- sbir_awards
+```
+```{r, include = FALSE}
+# Create a list will all outliers
+outliers_amount <- boxplot(sbir_awards$amount)$out
+
+# Remove the outliers from the data set
+sbir_awards <- sbir_awards[-which(sbir_awards$amount %in% outliers_amount),]
+```
+
+The average award amount is quite high, with a large amount of variability ($\mu$ = `r round(mean(data_with_outliers$amount), 2)`, *sd* = `r round(sd(data_with_outliers$amount), 2)`). There are a decent number of awards that received amounts much higher than most of the awards, which makes the distribution extremely skewed. In order to seek out patterns related to the majority of cases, I have removed `r length(outliers_amount)` outliers. If these outliers are of interest, further analyses can be conducted. The remaining awards have an average award that is still fairly high, although there is a great deal of variability ($\mu$ = `r round(mean(sbir_awards$amount), 2)`, *sd* = `r round(sd(sbir_awards$amount), 2)`). In addition, I have included a number of additional figures to explore the relationships between amount and the categorical variable. The plots are interactive (e.g., you can click on different element to adjust which elements are emphasized). 
+
+## Award Amount With Outliers
+```{r}
+# Create histogram with awards
+fig_2_1a <- my_hist(my_data = data_with_outliers, my_x = "amount")
+
+ggplotly(fig_2_1a)
 ```
 
 
-`r round(awards_for_program_sbir/nrow(sbir_awards), 4) * 100`% of the awards were from the SBIR program, while `r round(awards_for_program_sttr/nrow(sbir_awards), 4) * 100`% were from the STTR program.
+## Award Amount Without Outliers
 
 
-```{r programs-visualization, fig.cap = "Figure 1.4: Visualizations of the Number of Awards per Program"}
-# Visualize awards per program
-fig_1_4 <- ggplot(sbir_awards, aes(x=program)) + geom_bar()+ coord_flip() +
-labs(title = "Number of Awards per Program", x = "Program Name", y = "Number of Awards")
+```{r} 
+# Create histogram with awards with outliers removed
+fig_2_1c <- my_hist(my_data = sbir_awards, my_x = "amount")
 
-fig_1_4
+ggplotly(fig_2_1c)
+
 ```
 
 
-The oldest award included is from `r min(sbir_awards$award_year)`, and the most recent award is from `r max(sbir_awards$award_year)`.
+### Awards Amount BY Branch
 
 
-```{r year-visualization, fig.cap = "Figure 1.5: Visualizations of the number of Awards per Year"}
-# Visualize years
-fig_1_5 <- ggplot(sbir_awards, aes(x = award_year)) + 
-  geom_histogram(position = "dodge", bins = 20) + 
-  labs(title = "Number of Awards per Year", x = "Year", y = "Number of Awards") 
+```{r}
+fig_2_2a <- my_hist_filled(my_data = sbir_awards, my_x = "amount", my_fill = "branch", my_color = c("gray20", "gray25", "gray30", "gray35", "gray40", "gray45", "gray50", "gray55", "gray60", "gray65", "gray70", "gray75", "gray80", "gray85"))
 
-fig_1_5
+ggplotly(fig_2_2a)
+```
+
+```{r}
+fig_2_2b <- my_density_fill(my_data = sbir_awards, my_x = "amount", my_fill = "branch", my_color = c("gray20", "gray25", "gray30", "gray35", "gray40", "gray45", "gray50", "gray55", "gray60", "gray65", "gray70", "gray75", "gray80", "gray85"))
+
+ggplotly(fig_2_2b)
+```
+
+```{r}
+fig_2_2c <- my_box_filled(my_data = sbir_awards, my_x = "amount", my_fill = "branch", my_color = c("gray20", "gray25", "gray30", "gray35", "gray40", "gray45", "gray50", "gray55", "gray60", "gray65", "gray70", "gray75", "gray80", "gray85"))
+
+ggplotly(fig_2_2c)
 ```
 
 
+### Awards Amount BY Phase
 
 
-```{r start-date-visualization, fig.cap = "Figure 1.6: Visualizations of the Number of Awards per Start Date"}
-# Visualize awards per start date 
-fig_1_6 <- ggplot(sbir_awards, aes(x = award_start_date_proposal_award_date)) + 
-  geom_histogram(bins = 20) + 
-  labs(title = "Number of Awards per Start Date", x = "Date", y = "Number of Awards") 
+```{r}
+fig_2_3a <- my_hist_filled(my_data = sbir_awards, my_x = "amount", my_fill = "phases", my_color = c("light blue", "dark blue", "red"))
 
-fig_1_6
+ggplotly(fig_2_3a)
 ```
 
+```{r}
+fig_2_3b <- my_density_fill(my_data = sbir_awards, my_x = "amount", my_fill = "phases", my_color = c("light blue", "dark blue", "red"))
 
-```{r end-date-visualization, fig.cap = "Figure 1.7: Visualizations of the Number of Awards per End Date"}
-# Visualize awards per end date 
-fig_1_7 <- ggplot(sbir_awards, aes(x = award_end_date_contract_end_date)) + 
-  geom_histogram(bins = 20) + 
-  labs(title = "Number of Awards per End Date", x = "Start Date", y = "Number of Awards") 
-
-fig_1_7
+ggplotly(fig_2_3b)
 ```
 
+```{r}
+fig_2_3c <- my_box_filled(my_data = sbir_awards, my_x = "amount", my_fill = "phases", my_color = c("light blue", "dark blue", "red"))
 
-```{r days-start-end-visualization, fig.cap = "Figure 1.8: Visualizations of Awards per Days Between Start and End date "}
-# Visualize days between the start and end date 
-fig_1_8a <- ggplot(sbir_awards, aes(x = days_between_start_and_finish)) + 
-  geom_histogram(bins = 20) +
-  scale_x_continuous() +
-  labs(title = "Number of Awards per Days Between the Start and End Date", x = "Number of Days", y = "Number of Awards") 
-
-fig_1_8a
-
-# Create boxplot with awards
-fig_1_8b <- ggplot(sbir_awards, aes(x = days_between_start_and_finish)) + 
-  geom_boxplot()+ 
-  labs(title = "Number of Awards per Days Between the Start and End Date", x = "Number of Days", y = "Number of Awards")
-
-fig_1_8b
+ggplotly(fig_2_3c)
 ```
 
-
-`r round(awards_for_hubzone_owned/nrow(sbir_awards), 4) * 100`% of the awards were from hubzone_owned, while `r round(awards_for_not_hubzone_owned /nrow(sbir_awards), 4) * 100`% were not from hubzone_owned.
-
-
-```{r visualize_hubzone, fig.cap = "Figure 1.9: Visualizations of the Number of HubZone Ownership"}
-# Visualize awards for hubzone owned
-fig_1_9 <- ggplot(sbir_awards, aes(x = hubzone_owned)) + 
-  geom_bar()+ 
-  coord_flip() +
-  labs(title = "Number of Awards for HubZone Owned", x = "HubZone Owned")
-
-fig_1_9
-```
-
-
-`r round(awards_for_woman_owned/nrow(sbir_awards), 4) * 100`% of the awards were from women owned businesses, while `r round(awards_for_not_woman_owned /nrow(sbir_awards), 4) * 100`% were not from women owned businesses.
-
-
-
-```{r visualize_women, fig.cap = "Figure 1.10: Visualizations of the number of Awards by Women Owned Businesses"}
-# Visualize awards per women owned
-fig_1_10 <- ggplot(sbir_awards, aes(x = woman_owned)) + 
-  geom_bar()+ 
-  coord_flip() +
-  labs(title = "Number of Awards by Women Owned Businesses", x = "Women Owned", y = "Number of Awards")
-
-fig_1_10
-```
-
-
-`r round(awards_for_socially_and_economically_disadvantaged/nrow(sbir_awards), 4) * 100`% of the awards were from socially and economically disadvantaged, while `r round(awards_for_not_socially_and_economically_disadvantaged / nrow(sbir_awards), 4) * 100`% were not from socially and economically disadvantaged.
-
-
-```{r visualize_socially_economically_disadvantaged, fig.cap = "Figure 1.11: Visualizations of the Number of Awards for those who are socially and economically disadvantaged"}
-# Visualize awards per socially and economically disadvantaged
-fig_1_11 <- ggplot(sbir_awards, aes(x = socially_and_economically_disadvantaged)) + 
-  geom_bar()+ 
-  coord_flip() +
-  labs(title = "Number of Awards for Socially and Economically Disadvantaged", x = "Socially and Economically Disadvantaged", y = "Number of Awards")
-
-fig_1_11
-```
-
-## Exploratory Analyses 
-
-As Phase is an important variable of interest, I will begin by exploring the relationships between Phase (i.e., the new version I created), the amount of the award, and the differing variables within the data set.
-
-### Exploration of Phase, Award Amount, and Differing Factors
-
-```{r amount_phase_branch, fig.width = 8, fig.cap = "Figure 2.1: Visualizations of Award Amount by Phase"}
-fig_2_1 <- ggplot(sbir_awards, aes(x = phase_more, y = amount, fill = phase_more)) +
-  geom_boxplot(position = position_dodge(1), outlier.shape = NA) + 
-  scale_y_continuous(limits = c(0, 200000)) +
-  scale_fill_manual(values=c("blue", "dark blue", "red")) +
-  labs(title = "Boxplot Award Amounts for Each Phase (Excluding Outliers)", x = "Phase", y = "Award Amount", fill = "Phase") +
-    theme(axis.text.x = element_blank(), legend.position = "bottom") 
-
-fig_2_1
+```{r}
+# Create Descriptive Statistics
+descriptives_numeric_grouped(data = sbir_awards, var = "amount", grouping = "phases")
 ```  
-  
-```{r amount_phase_branch, fig.width = 8, fig.height = 10, fig.cap = "Figure 2.2: Visualizations of Award Amount by Phase and Branch"}
-# Visualize award amount by phase and branch
-fig_2_2 <- ggplot(sbir_awards, aes(x = phase_more, y = amount, fill = phase_more)) +
-  geom_boxplot(position = position_dodge(1), outlier.shape = NA) + 
-  scale_y_continuous(limits = c(0, 2000000)) +
-  scale_fill_manual(values=c("blue", "dark blue", "red")) +
-  facet_wrap(~branch, nrow = 5) +
-  labs(title = "Award Amount, Phase, and Branch (Excluding Outliers)", x = "Branch Name", y = "Amount of Award", fill = "Phases") +
-  theme(axis.text.x = element_blank(), legend.position = "bottom") 
 
-fig_2_2
+
+### Awards Amount BY Program
+
+
+```{r}
+fig_2_4a <- my_hist_filled(my_data = sbir_awards, my_x = "amount", my_fill = "program", my_color = c("green", "green4"))
+
+ggplotly(fig_2_4a)
 ```
 
 ```{r}
+fig_2_4b <- my_density_fill(my_data = sbir_awards, my_x = "amount", my_fill = "program", my_color = c("green", "green4"))
 
-
-
-# Visualize distribution of awards by program
-ggplot(sbir_awards, aes(x = amount, fill = program)) +
-  geom_histogram(position = "dodge", bins = 20) + 
-  labs(title = "Distibution of Award Amounts for Each Program", x = "Amount of Award", y = "Count", fill = "Programs")
-
-# Create boxplot of awards by program
-ggplot(sbir_awards, aes(x = amount, fill = program)) +
-  geom_boxplot(position = "dodge") + 
-  labs(title = "Boxplot Award Amounts for Each Program", x = "Amount of Award", y = "Count", fill = "Phases")
-
-
-
-# Visualize awards per year separated by phase
-ggplot(sbir_awards, aes(x = award_year, fill = phase)) + 
-  geom_histogram(position = "dodge", bins = 20) + 
-  labs(title = "Number of Awards per Year by Phase", x = "Year")
-
-# Visualize award amount by phase and year
-ggplot(sbir_awards, aes(x = award_year, y = amount, color = phase_more)) +
-  geom_line() + 
-  scale_y_continuous(limits = c(0, 2000000)) +
-  scale_color_manual(values=c("blue", "dark blue", "red")) +
-  facet_wrap(~phase_more, nrow = 3) +
-  labs(title = "Award Amount, Phase, and Years (Excluding Outliers)", x = "Years", y = "Amount of Award", color = "Phase") +
-  theme(legend.position = "bottom") 
+ggplotly(fig_2_4b)
 ```
 
 ```{r}
-# Visualize awards per start date by phase
-ggplot(sbir_awards, aes(x = award_start_date_proposal_award_date, fill = phase)) + 
-  geom_histogram(position = "dodge", bins = 20) + 
-  labs(title = "Number of Awards per Start Date by Phase", x = "Date") 
+fig_2_4c <- my_box_filled(my_data = sbir_awards, my_x = "amount", my_fill = "program", my_color = c("green", "green4"))
 
-
-
-
-# Visualize awards per end date by phase
-ggplot(sbir_awards, aes(x = award_end_date_contract_end_date, fill = phase)) + 
-  geom_histogram(position = "dodge", bins = 20) + 
-  labs(title = "Number of Awards per End Date by Phase", x = "End Date") 
-
-
-
-
-
-# Visualize days between the start and end date by phase 
-ggplot(sbir_awards, aes(x = days_between_start_and_finish, fill = phase)) + 
-  geom_histogram(position = "dodge", bins = 20) +
-  scale_x_continuous() +
-  labs(title = "Number of Days Between the Start and End Date by Phase", x = "Days") 
-
-
-
-
-
-# Visualize awards for hubzone owned by phase
-ggplot(sbir_awards, aes(x = hubzone_owned, fill = phase)) + 
-  geom_bar(position = "dodge") + 
-  coord_flip() +
-  labs(title = "Number of Awards for HubZone Owned by Phase", x = "HubZone Owned")
-
-
-
-
-
-
-
-# Visualize awards per women owned by phase
-ggplot(sbir_awards, aes(x = woman_owned, fill = phase)) + 
-  geom_bar(position= "dodge")+ 
-  coord_flip() +
-  labs(title = "Number of Awards for Women Owned by Phase", x = "Women Owned")
-
-
-
-
-
-
-# Visualize awards per socially and economically disadvantaged by phase
-ggplot(sbir_awards, aes(x = socially_and_economically_disadvantaged, fill = phase)) + 
-  geom_bar(position = "dodge")+ 
-  coord_flip() +
-  labs(title = "Number of Awards for Socially and Economically Disadvantaged by Phase", x = "Socially and Economically Disadvantaged")
+ggplotly(fig_2_4c)
 ```
 
-```{r award_amount_summary_statistics}
-# Calculate the summary statistics for the amount
-sbir_awards %>% 
-  group_by(phase) %>%
-  summarize(n = n(), mean = mean(amount), sd = sd(amount), median = median(amount), min = min(amount), max(amount), range = range(amount))
-glimpse(sbir_awards)
+```{r}
+# Create descriptive statistics
+descriptives_numeric_grouped(data = sbir_awards, var = "amount", grouping = "program")
 ```
 
 
-Here at the end, I would like to write the cleaned data set to a csv file (or SQL if needed).
+### Awards Amount BY Women Owned
+
+
+```{r}
+fig_2_5a <- my_hist_filled(my_data = sbir_awards, my_x = "amount", my_fill = "woman_owned", my_color = c("gold", "gold4"))
+
+ggplotly(fig_2_5a)
+```
+
+```{r}
+fig_2_5b <- my_density_fill(my_data = sbir_awards, my_x = "amount", my_fill = "woman_owned", my_color = c("gold", "gold4"))
+
+ggplotly(fig_2_5b)
+```
+
+```{r}
+fig_2_5c <- my_box_filled(my_data = sbir_awards, my_x = "amount", my_fill = "woman_owned", my_color = c("gold", "gold4"))
+
+ggplotly(fig_2_5c)
+```
+
+```{r}
+# Create descriptive statistics
+descriptives_numeric_grouped(data = sbir_awards, var = "amount", grouping = "woman_owned")
+```  
+
+
+### Awards Amount BY Hubzone Owned
+
+
+```{r}
+fig_2_6a <- my_hist_filled(my_data = sbir_awards, my_x = "amount", my_fill = "hubzone_owned", my_color = c("deeppink", "deeppink4"))
+
+ggplotly(fig_2_6a)
+```
+
+```{r}
+fig_2_6b <- my_density_fill(my_data = sbir_awards, my_x = "amount", my_fill = "hubzone_owned", my_color = c("deeppink", "deeppink4"))
+
+ggplotly(fig_2_6b)
+```
+
+```{r}
+fig_2_6c <- my_box_filled(my_data = sbir_awards, my_x = "amount", my_fill = "hubzone_owned", my_color = c("deeppink", "deeppink4"))
+
+ggplotly(fig_2_6c)
+```
+
+```{r}
+descriptives_numeric_grouped(data = sbir_awards, var = "amount", grouping = "hubzone_owned")
+```
+
+
+### Awards Amount BY Socially and Economically Disadvantaged
+
+
+```{r}
+fig_2_7a <- my_hist_filled(my_data = sbir_awards, my_x = "amount", my_fill = "socially_and_economically_disadvantaged", my_color = c("cyan", "cyan4"))
+
+ggplotly(fig_2_7a)
+```
+
+```{r}
+fig_2_7b <- my_density_fill(my_data = sbir_awards, my_x = "amount", my_fill = "socially_and_economically_disadvantaged", my_color = c("cyan", "cyan4"))
+
+ggplotly(fig_2_7b)
+```
+
+```{r}
+fig_2_7c <- my_box_filled(my_data = sbir_awards, my_x = "amount", my_fill = "socially_and_economically_disadvantaged", my_color = c("cyan", "cyan4"))
+
+ggplotly(fig_2_7c)
+```
+
+```{r}
+# Create descriptive statistics
+descriptives_numeric_grouped(data = sbir_awards, var = "amount", grouping = "socially_and_economically_disadvantaged")
+```  
+
+
+# Exploration of Year of Award
+
+
+The oldest award included is from `r min(sbir_awards$award_year)`, and the most recent award is from `r max(sbir_awards$award_year)`. `r round((sum(sbir_awards$socially_and_economically_disadvantaged == "Y")/nrow(sbir_awards)) * 100, 2)`% of the awards were from socially and economically disadvantaged, while `r round((sum(sbir_awards$socially_and_economically_disadvantaged == "N")/nrow(sbir_awards)) * 100, 2)`% were not from socially and economically disadvantaged.
+
+```{r}
+#Visualizations of the number of Awards per Year
+fig_3_1a <- my_hist(my_data = sbir_awards, my_x = "award_year")
+
+ggplotly(fig_3_1a)
+```
+
+
+### Awards Per Year BY Branch
+
+
+```{r}
+fig_3_2a <- my_hist_filled(my_data = sbir_awards, my_x = "award_year", my_fill = "branch", my_color = c("gray20", "gray25", "gray30", "gray35", "gray40", "gray45", "gray50", "gray55", "gray60", "gray65", "gray70", "gray75", "gray80", "gray85"))
+
+ggplotly(fig_3_2a)
+```
+
+```{r}
+fig_3_2b <- my_density_fill(my_data = sbir_awards, my_x = "award_year", my_fill = "branch", my_color = c("gray20", "gray25", "gray30", "gray35", "gray40", "gray45", "gray50", "gray55", "gray60", "gray65", "gray70", "gray75", "gray80", "gray85"))
+
+ggplotly(fig_3_2b)
+```
+
+```{r}
+fig_3_2c <- my_box_filled(my_data = sbir_awards, my_x = "award_year", my_fill = "branch", my_color = c("gray20", "gray25", "gray30", "gray35", "gray40", "gray45", "gray50", "gray55", "gray60", "gray65", "gray70", "gray75", "gray80", "gray85"))
+
+ggplotly(fig_3_2c)
+```
+
+
+### Awards Per Year BY Phases
+
+
+```{r}
+fig_3_3a <- my_hist_filled(my_data = sbir_awards, my_x = "award_year", my_fill = "phases", my_color = c("light blue", "dark blue", "red"))
+
+ggplotly(fig_3_3a)
+```
+
+```{r}
+fig_3_3b <- my_density_fill(my_data = sbir_awards, my_x = "award_year", my_fill = "phases", my_color = c("light blue", "dark blue", "red"))
+
+ggplotly(fig_3_3b)
+```
+
+```{r}
+fig_3_3c <- my_box_filled(my_data = sbir_awards, my_x = "award_year", my_fill = "phases", my_color = c("light blue", "dark blue", "red"))
+
+ggplotly(fig_3_3c)
+```
+
+
+### Awards Per Year BY Program
+
+
+```{r}
+fig_3_4a <- my_hist_filled(my_data = sbir_awards, my_x = "award_year", my_fill = "program", my_color = c("green", "green4"))
+
+ggplotly(fig_3_4a)
+```
+
+```{r}
+fig_3_4b <- my_density_fill(my_data = sbir_awards, my_x = "award_year", my_fill = "program", my_color = c("green", "green4"))
+
+ggplotly(fig_3_4b)
+```
+
+```{r}
+fig_3_4c <- my_box_filled(my_data = sbir_awards, my_x = "award_year", my_fill = "program", my_color = c("green", "green4"))
+
+ggplotly(fig_3_4c)
+```
+
+
+### Awards Per Year BY Women Owned
+
+
+```{r}
+fig_3_5a <- my_hist_filled(my_data = sbir_awards, my_x = "award_year", my_fill = "woman_owned", my_color = c("gold", "gold4"))
+
+ggplotly(fig_3_5a)
+```
+
+```{r}
+fig_3_5b <- my_density_fill(my_data = sbir_awards, my_x = "award_year", my_fill = "woman_owned", my_color = c("gold", "gold4"))
+
+ggplotly(fig_3_5b)
+```
+
+```{r, fig.width = 10}
+fig_3_5c <- my_box_filled(my_data = sbir_awards, my_x = "award_year", my_fill = "woman_owned", my_color = c("gold", "gold4"))
+
+ggplotly(fig_3_5c)
+```
+
+
+### Awards Per Year BY Hubzone Owned
+
+
+```{r}
+fig_3_6a <- my_hist_filled(my_data = sbir_awards, my_x = "award_year", my_fill = "hubzone_owned", my_color = c("deeppink", "deeppink4"))
+
+ggplotly(fig_3_6a)
+```
+
+```{r}
+fig_3_6b <- my_density_fill(my_data = sbir_awards, my_x = "award_year", my_fill = "hubzone_owned", my_color = c("deeppink", "deeppink4"))
+
+ggplotly(fig_3_6b)
+```
+
+```{r}
+fig_3_6c <- my_box_filled(my_data = sbir_awards, my_x = "award_year", my_fill = "hubzone_owned", my_color = c("deeppink", "deeppink4"))
+
+ggplotly(fig_3_6c)
+```
+
+
+### Awards Per Year BY Socially and Economically Disadvantaged
+
+
+```{r}
+fig_3_7a <- my_hist_filled(my_data = sbir_awards, my_x = "award_year", my_fill = "socially_and_economically_disadvantaged", my_color = c("cyan", "cyan4"))
+
+ggplotly(fig_3_7a)
+```
+
+```{r}
+fig_3_7b <- my_density_fill(my_data = sbir_awards, my_x = "award_year", my_fill = "socially_and_economically_disadvantaged", my_color = c("cyan", "cyan4"))
+
+ggplotly(fig_3_7b)
+```
+
+```{r}
+fig_3_7c <- my_box_filled(my_data = sbir_awards, my_x = "award_year", my_fill = "socially_and_economically_disadvantaged", my_color = c("cyan", "cyan4"))
+
+ggplotly(fig_3_7c)
+```
+
+
+# Amount by year per Differing Factors
+
+
+### Amount, Year, and Branch
+
+
+```{r}
+fig_4_1a <- my_smooth_filled(my_data = sbir_awards, my_x = "award_year", my_y = "amount", my_fill = "branch", my_color = c("gray20", "gray25", "gray30", "gray35", "gray40", "gray45", "gray50", "gray55", "gray60", "gray65", "gray70", "gray75", "gray80", "gray85"))
+
+ggplotly(fig_4_1a)
+```
+
+
+### Amount, Year, and Phase
+
+
+```{r}
+fig_4_2a <- my_smooth_filled(my_data = sbir_awards, my_x = "award_year", my_y = "amount", my_fill = "phases", my_color = c("light blue", "blue", "red"))
+
+ggplotly(fig_4_2a)
+```
+
+
+### Amount, Year, and Program
+
+
+```{r}
+fig_4_3a <- my_smooth_filled(my_data = sbir_awards, my_x = "award_year", my_y = "amount", my_fill = "program", my_color = c("green", "green4"))
+
+ggplotly(fig_4_3a)
+```
+
+
+### Amount, Year, and Women Owned
+
+
+```{r}
+fig_4_4a <- my_smooth_filled(my_data = sbir_awards, my_x = "award_year", my_y = "amount", my_fill = "woman_owned", my_color = c("gold", "gold4"))
+
+ggplotly(fig_4_4a)
+```
+
+
+### Amount, Year, and Hubzone Owned
+
+
+```{r}
+fig_4_5a <- my_smooth_filled(my_data = sbir_awards, my_x = "award_year", my_y = "amount", my_fill = "hubzone_owned", my_color = c("deeppink", "deeppink4"))
+
+ggplotly(fig_4_5a)
+```
+
+
+```{r, include = FALSE}
+# Write out the processed data
+write_csv(sbir_awards, "sbir_awards_processed.csv")
+```
+
+
+# Most Frequently Used Words in Award Titles (Excluding Stop Words)
+
+
+```{r, include = FALSE}
+# Combine the titles
+sbir_awards$text <- str_c(sbir_awards$award_names, sep = " ")
+
+# Prepare data set to look at the text
+sbir_text <- sbir_awards %>% select(phases, text)
+
+# Tokenize and remove stop words
+sbir_text_tidy <- sbir_text %>%
+  unnest_tokens(word, text) %>%
+  anti_join(stop_words) 
+
+# Create Word Count
+word_counts_title <- sbir_text_tidy %>%
+  count(word, phases) %>%
+  group_by(phases) %>%
+  top_n(20, n) %>%
+  ungroup() %>%
+  mutate(word2 = fct_reorder(word, n))
+```
+
+```{r}
+# Frequency of words plot
+ggplot(word_counts_title, aes(x = word2, y = n, fill = phases)) +
+  geom_col(show.legend = FALSE) +
+  facet_wrap(~phases, scales = "free_y") +
+  coord_flip() +
+  ggtitle("Most Frequently Used Words from Awards Titles")
+```
+
+
+# Most Frequently Used Words in Award Titles and Abstracts (Excluding Stop Words)
+
+
+```{r, include = FALSE}
+# Remove the title abstract from the abstract text
+sbir_awards$abstract <- str_replace(sbir_awards$abstract, pattern = "Abstract", replacement = "") %>% str_trim()
+
+# Combine the title and the abstract text together
+sbir_awards$text <- str_c(sbir_awards$award_names, sbir_awards$abstract, sep = " ")
+
+# Prepare data set to look at the text
+sbir_text <- sbir_awards %>% select(phases, text)
+
+# Tokenize and Clean
+sbir_text_tidy <- sbir_text %>%
+  unnest_tokens(word, text) %>%
+  anti_join(stop_words) 
+
+# Create Word Counts
+word_counts <- sbir_text_tidy %>%
+  count(word, phases) %>%
+  group_by(phases) %>%
+  top_n(20, n) %>%
+  ungroup() %>%
+  mutate(word2 = fct_reorder(word, n))
+
+```
+
+```{r}
+# Frequency of words plot
+ggplot(word_counts, aes(x = word2, y = n, fill = phases)) +
+  geom_col(show.legend = FALSE) +
+  facet_wrap(~phases, scales = "free_y") +
+  coord_flip() +
+  ggtitle("Most Frequently Used Words from the Awards Title and Abstract")
+
+```
+
+
+# Potential Future Directions
+
+
+I am planning to write a second report, which will contain the analyses related to key words in the text, along with further exploration of this new data set. The following are some of the potential tasks I am considering. Please take a look, and please provide me with any feedback that you have. Also, if there are other things you are wanting me to dive into more deeply, please let me know. 
+
++ Create comparison plots (using a bag of words approach) to look at which words each phase has in common with the others.
++ Create difference plots (using a similar approach) to explore words that are uniquely used in each phase. 
++ Use topic modeling, to categorize, and determine the number of, the differing themes within the text. If you are unfamiliar, it is similar to factor analysis, but for textual data.
++ Feature extraction (i.e., pulling out additional factors from the text which can be used in future models). 
++ Create a classification model to predict amount of award based on the text in the titles and abstracts. 
++ There is also additional data within the recipient variable that might be interesting to explore.
++There are many other models that I would be interested in conducting, but I think it would be best to get your feedback regarding what you would like me to explore in greater detail. 
 
